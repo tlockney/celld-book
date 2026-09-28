@@ -1,9 +1,10 @@
 #!/bin/sh
 # Upload the series-variant lab notebooks (with their executed outputs) and the generators to the homelab
 # JupyterLab (work/celld/). Run `deno task series` first. No execution happens here.
+# JUPYTER_API is the contents-API URL of the target folder, e.g. https://<host>/api/contents/work/celld
 set -eu
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-API=${JUPYTER_API:-https://jupyter.home.lockney.net/api/contents/work/celld}
+API=${JUPYTER_API:?set JUPYTER_API to the JupyterLab contents-API URL of the target folder}
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 for n in celld-01-cells celld-02-bindings celld-03-processes; do
