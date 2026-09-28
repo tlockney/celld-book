@@ -28,6 +28,8 @@ import { renderArticle } from "../vendor/bench-sheet/render-article.ts";
 import { isNotebook, type Notebook, renderNotebook, toNotebookMeta } from "../vendor/bench-sheet/render-notebook.ts";
 import { parse as parseYaml } from "@std/yaml";
 import { FIGURE_CSS } from "./figures.ts";
+import { ZOOM_CSS, ZOOM_JS } from "./zoom.ts";
+import { LABS_README, labsZip, notebookForDownload } from "./downloads.ts";
 import { contentVersion, ICON_FILES, manifest, REGISTER_JS, serviceWorker, withHeadTags } from "./pwa.ts";
 
 const ROOT = new URL("../", import.meta.url).pathname;
@@ -227,6 +229,13 @@ async function renderPage(p: PlannedPage, inp: BuildInputs, assets: Assets): Pro
   const metaRaw = parseYaml(read(`${base}.meta.yaml`));
   const meta = toNotebookMeta(metaRaw);
   meta.series_parts = [];
+  const nbName = `${base.split("/").pop()}.ipynb`;
+  meta.preface_label = "Run it yourself";
+  meta.preface = "This chapter is an executed notebook: every output below came from a run against celld v0.6.0 on " +
+    `2026·09·26. To run it yourself, download [this notebook](labs/${nbName}) and the helper ` +
+    "[celld_nb.ts](labs/celld_nb.ts) into the same folder (the setup cell imports it), or get " +
+    "[all three labs and the helper as a zip](labs/celld-labs.zip). Open the notebook in JupyterLab with a Deno " +
+    "kernel; the setup cell installs celld and esbuild if they are missing.";
   meta.series = `${p.cfg.label} · Chapter ${p.cfg.chapter} · ${inp.book.title}: ${inp.book.subtitle}`;
   return await Promise.resolve(renderNotebook(nb, {
     meta,
@@ -385,6 +394,7 @@ export function postprocess(html: string, page: PlannedPage, pc: PostContext): s
     const href = a.getAttribute("href") ?? "";
     const next = rewriteHref(href, page, pc);
     if (next !== href) a.setAttribute("href", next);
+    if (/^labs\/[\w.-]+\.(ipynb|ts|zip)$/.test(next)) a.setAttribute("download", next.slice("labs/".length));
   }
 
   const containers = page.kind === "lab"
@@ -521,7 +531,7 @@ function coverPage(pc: PostContext, css: string, js: string): string {
 
 // ── link check ────────────────────────────────────────────────────────────
 
-export function checkLinks(files: Map<string, string>): string[] {
+export function checkLinks(files: Map<string, string>, assets: Set<string> = new Set()): string[] {
   const ids = new Map<string, Set<string>>();
   for (const [f, h] of files) ids.set(f, new Set([...h.matchAll(ID_RE)].map((m) => m[1])));
   const problems: string[] = [];
@@ -531,6 +541,7 @@ export function checkLinks(files: Map<string, string>): string[] {
       if (/^(https?:|mailto:)/.test(href)) continue;
       const [file, anchor] = href.split("#");
       const target = file === "" ? f : file;
+      if (assets.has(target)) continue;
       if (!ids.has(target)) {
         problems.push(`${f}: link to missing page ${href}`);
         continue;
@@ -546,9 +557,9 @@ export function checkLinks(files: Map<string, string>): string[] {
 if (import.meta.main) {
   const inp = loadInputs();
   const assets: Assets = {
-    articleCss: (await readAssets("bench.css", "article.css")) + FIGURE_CSS + BOOK_CSS,
+    articleCss: (await readAssets("bench.css", "article.css")) + FIGURE_CSS + BOOK_CSS + ZOOM_CSS,
     notebookCss: (await readAssets("bench.css", "notebook.css")) + BOOK_CSS,
-    js: (await readAssets("bench.js")) + BOOK_JS + REGISTER_JS,
+    js: (await readAssets("bench.js")) + BOOK_JS + ZOOM_JS + REGISTER_JS,
   };
   const nbJs = (await readAssets("bench.js", "notebook.js")) + BOOK_JS + REGISTER_JS;
 
@@ -587,16 +598,45 @@ if (import.meta.main) {
     icons.set(`icons/${f}`, bytes);
     await Deno.writeFile(dist + "icons/" + f, bytes);
   }
+  // Downloads: the labs (book references, absolute links), the helper they import, and a zip of all.
+  await Deno.mkdir(dist + "labs", { recursive: true });
+  const downloads = new Map<string, Uint8Array>();
+  const enc = new TextEncoder();
+  const zipFiles: Record<string, Uint8Array> = {};
+  for (const p of planned.filter((x) => x.cfg.lab)) {
+    const base = inp.book.sources.labs[(p.cfg.lab ?? 1) - 1];
+    const nbRaw: unknown = JSON.parse(read(`${base}.ipynb`));
+    if (!isNotebook(nbRaw)) throw new Error(`${base}.ipynb is not a notebook`);
+    const nb = notebookForDownload(
+      nbRaw,
+      makeResolver(planned, idx, inp, p),
+      inp.book.siteUrl,
+      fileOf(p.cfg.slug),
+      inp.book.phrases,
+    );
+    const name = `${base.split("/").pop()}.ipynb`;
+    const bytes = enc.encode(JSON.stringify(nb, null, 1) + "\n");
+    downloads.set(`labs/${name}`, bytes);
+    zipFiles[name] = bytes;
+  }
+  const helper = await Deno.readFile(ROOT + "labs/celld_nb.ts");
+  downloads.set("labs/celld_nb.ts", helper);
+  zipFiles["celld_nb.ts"] = helper;
+  zipFiles["README.txt"] = enc.encode(LABS_README);
+  downloads.set("labs/celld-labs.zip", labsZip(zipFiles));
+  for (const [f, b] of downloads) await Deno.writeFile(dist + f, b);
+  console.log(`downloads: ${[...downloads.keys()].join(", ")}`);
+
   const man = manifest(inp.book);
   await Deno.writeTextFile(dist + "manifest.webmanifest", man);
   const version = await contentVersion(
-    new Map<string, string | Uint8Array>([...out, ...icons, ["manifest.webmanifest", man]]),
+    new Map<string, string | Uint8Array>([...out, ...icons, ...downloads, ["manifest.webmanifest", man]]),
   );
-  const precache = ["./", ...out.keys(), "manifest.webmanifest", ...icons.keys()];
+  const precache = ["./", ...out.keys(), "manifest.webmanifest", ...icons.keys(), ...downloads.keys()];
   await Deno.writeTextFile(dist + "sw.js", serviceWorker(version, precache));
   console.log(`PWA: manifest, ${icons.size} icons, service worker (cache ${version}, ${precache.length} entries)`);
 
-  const problems = checkLinks(out);
+  const problems = checkLinks(out, new Set(downloads.keys()));
   console.log(`built ${out.size} pages into dist/`);
   if (problems.length) {
     console.error(`${problems.length} broken internal link(s):`);
