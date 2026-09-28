@@ -50,6 +50,7 @@
     { "slug": "glossary", "part": "app", "label": "Appendix B", "doc": "fg", "sections": ["glossary"], "promote": true },
     { "slug": "release-notes", "part": "app", "label": "Appendix C", "doc": "fg", "title": "Release notes and upgrade cliffs",
       "gather": { "callout": "upgrade cliffs", "from": "running-fleet", "subsection": "Release notes" } },
+    { "slug": "wal-ltx", "part": "app", "label": "Appendix D", "md": "content/book/wal-ltx.md" },
     { "slug": "bibliography", "part": "back", "label": "Bibliography", "bibliography": "content/book/bibliography.yaml" },
     { "slug": "colophon", "part": "back", "label": "Colophon", "md": "content/book/colophon.md" }
   ],
@@ -60,7 +61,8 @@
     "how-celld-works": ["part2"], "cell-model": ["part2"], "bucket": ["part2"], "ownership": ["part2"],
     "fleet": ["part2"], "compatibility": ["part2"], "designing": ["part2"], "verdict": ["part2"],
     "building": ["ch9"], "lab-1": ["labs"], "lab-2": ["labs"], "lab-3": ["labs"],
-    "review": ["appA"], "glossary": ["part2"], "release-notes": ["part2"]
+    "review": ["appA"], "glossary": ["part2"], "release-notes": ["part2"],
+    "wal-ltx": ["appD"]
   },
 
   "glossary": {

@@ -171,6 +171,7 @@ const USED_IN: Record<string, string> = {
   ch9: "Chapter 9",
   labs: "Labs 1–3",
   appA: "Appendix A",
+  appD: "Appendix D",
 };
 
 function bibDate(d: string): string {
@@ -401,7 +402,8 @@ export function postprocess(html: string, page: PlannedPage, pc: PostContext): s
     ? "main .prose, header .dek, nav.outline"
     : "main .prose, main .table-wrap, main .c-title, main .pull, main .runline, main figcaption, main h2, main h3, header .dek, nav.outline";
   const used = new Set<string>(pc.inp.book.glossary.exclude);
-  const glossOn = page.cfg.slug !== "glossary" && page.kind !== "book";
+  // Glossary hovers everywhere except the glossary itself and the front/back matter.
+  const glossOn = !["glossary", "introduction", "bibliography", "colophon"].includes(page.cfg.slug);
   const seen = new Set<El>();
 
   const visit = (node: El, inLink: boolean, inHeading: boolean) => {

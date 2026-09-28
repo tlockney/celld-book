@@ -16,7 +16,7 @@ It is written for engineers who build stateful services and want to understand a
 - **Part II, How celld works** (Chapters 2–8), is the reference: the cell model, the bucket as coordinator, ownership and fencing, running a fleet, the Cloudflare compatibility surface, designing around cells, and a closing assessment.
 - **Part III, Building on celld** (Chapter 9), is a walkthrough in ten steps, from an empty directory to an operated fleet.
 - **Part IV, Labs** (Chapters 10–12), are executed notebooks. Each one drives a real `celld dev` node and checks the book's claims against what the node actually does.
-- **The appendices** hold a quick reference and self-quiz, the glossary, and the release notes with every upgrade rule.
+- **The appendices** hold a quick reference and self-quiz, the glossary, the release notes with every upgrade rule, and a look under the hood at SQLite's write-ahead log, Litestream, and the LTX files celld replicates.
 
 ## How to read it {#how-to-read}
 
