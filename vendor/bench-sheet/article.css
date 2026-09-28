@@ -1,0 +1,170 @@
+/* Bench sheet — article layer: numbered sections, gutter labels for code,
+   callouts, figures, and tables, the section map. Loaded after bench.css by
+   render-article.ts. */
+
+.art {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-prose);
+  font-size: 17.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+.art *, .art *::before, .art *::after { box-sizing: border-box; }
+.art a { color: var(--cobalt); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.art :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; border-radius: 2px; }
+
+/* ---------- masthead additions ---------- */
+/* Section map: one tick per section, width proportional to its length. */
+.secmap { display: flex; gap: 3px; margin-top: 0.5rem; }
+.secmap .tick {
+  flex-basis: 0; min-width: 6px; max-width: none; height: auto;
+  display: flex; flex-direction: column; gap: 4px; text-decoration: none;
+  background: none; opacity: 1;
+}
+.secmap .tick::before {
+  content: ""; display: block; height: 10px; border-radius: 1px; background: var(--cobalt); opacity: 0.55;
+  transition: opacity 0.12s, transform 0.12s;
+}
+.secmap .tick:hover::before { opacity: 1; transform: scaleY(1.4); }
+.secmap .tick span { font: 0.6rem/1 var(--f-mono); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.secmap .tick:hover { transform: none; }
+.secmap .tick:hover span { color: var(--cobalt); }
+
+/* ---------- body ---------- */
+.article { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
+.sec { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2rem; }
+.intro + .sec, .article > .sec:first-child { margin-top: 0.5rem; }
+.intro { display: flex; flex-direction: column; gap: 1.1rem; }
+.intro .r-prose:first-child .prose > p:first-child { font-size: 1.16em; line-height: 1.55; color: var(--ink); }
+
+.rbody { min-width: 0; }
+.r-prose .prose, .r-callout .prose { max-width: 41rem; }
+
+/* Section head: the rule spans gutter and column; the number sits in the gutter. */
+.r-h2 { border-top: 1px solid var(--rule); padding-top: 1.4rem; }
+.r-h2 .gutter { padding-top: 0.05rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; }
+.s-label { font: 500 0.62rem/1 var(--f-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.s-num {
+  font-family: var(--f-head); font-weight: 600; font-size: 2.1rem; line-height: 0.95; color: var(--cobalt);
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+}
+.r-h2 h2 {
+  margin: 0; font-family: var(--f-head); font-weight: 600;
+  font-size: clamp(1.45rem, 1.2rem + 0.9vw, 1.85rem); line-height: 1.15; text-wrap: balance;
+  scroll-margin-top: 1.5rem;
+}
+
+.r-h3 { margin-top: 0.6rem; }
+.r-h3 .gutter { padding-top: 0.42rem; }
+.r-h3 h3 {
+  margin: 0; font-family: var(--f-head); font-weight: 600; font-size: 1.25rem; line-height: 1.25; text-wrap: balance;
+  scroll-margin-top: 1.5rem;
+}
+
+.glabel { font-size: 0.68rem; letter-spacing: 0.05em; color: var(--ink-3); }
+.g-num { color: var(--cobalt); font-size: 0.74rem; }
+.g-lang { text-transform: lowercase; }
+.r-prose .gutter { padding-top: 0; }
+
+/* Code: the plate comes from bench.css; a filename rides on top of it. */
+.r-code .md-code { margin: 0; }
+.r-code .plate { margin: 0; }
+.codefile { border: 1px solid var(--plate-edge); border-radius: 3px; overflow: hidden; }
+.codefile .fname {
+  font: 500 0.7rem/1 var(--f-mono); color: var(--ink-2); letter-spacing: 0.02em;
+  padding: 0.55rem 0.95rem; background: var(--paper-2); border-bottom: 1px solid var(--plate-edge);
+}
+.codefile .md-code { border: 0; border-radius: 0; }
+
+/* Callouts: readouts, like notebook outputs. */
+.callout {
+  max-width: 41rem;
+  border-left: 2px solid var(--cobalt); background: var(--cobalt-wash);
+  padding: 0.75rem 1rem 0.8rem;
+  border-radius: 0 3px 3px 0;
+  font-size: 0.95em;
+}
+.c-warning .callout, .c-caution .callout { border-left-color: var(--signal); background: var(--signal-wash); }
+.r-callout .gutter { padding-top: 0.85rem; }
+.r-callout .glabel { text-transform: uppercase; letter-spacing: 0.08em; color: var(--cobalt); }
+.c-warning .glabel, .c-caution .glabel { color: var(--signal); }
+.c-title {
+  margin: 0 0 0.35rem; font-family: var(--f-head); font-weight: 600; font-size: 1.02rem; line-height: 1.3;
+}
+.c-title::first-letter { text-transform: uppercase; }
+
+/* Figures sit on a light card in both themes: diagrams are usually drawn for paper. */
+.r-fig .gutter { padding-top: 0.9rem; }
+.r-fig figure { margin: 0; }
+.r-fig img, .r-fig .mermaid {
+  display: block; max-width: 100%; height: auto; margin: 0;
+  background: var(--fig-ground, #fbfbf8); border: 1px solid var(--rule); border-radius: 3px; padding: 0.9rem;
+}
+.r-fig .mermaid { overflow-x: auto; font-family: var(--f-mono); font-size: 0.8rem; color: #1b252e; }
+.r-fig figcaption {
+  margin-top: 0.55rem; max-width: 41rem;
+  font: 0.74rem/1.45 var(--f-mono); color: var(--ink-2);
+}
+
+.r-table .gutter { padding-top: 0.45rem; }
+.r-table .table-wrap { margin: 0; }
+.r-table table { border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.r-table th {
+  font: 600 0.7rem/1.3 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2);
+  text-align: left; border-bottom: 1.5px solid var(--ink-3); padding: 0.4rem 0.9rem 0.4rem 0;
+}
+.r-table td { border-bottom: 1px solid var(--rule); padding: 0.45rem 0.9rem 0.45rem 0; vertical-align: top; }
+
+/* Notes (footnotes) */
+.sec-notes { margin-top: 2.5rem; }
+.r-notes { border-top: 1px solid var(--rule); padding-top: 1.2rem; }
+.notes { font-size: 0.88rem; color: var(--ink-2); }
+.notes .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.notes ol { padding-left: 1.2em; margin: 0; }
+.notes li::marker { font-family: var(--f-mono); color: var(--cobalt); font-size: 0.8em; }
+.prose sup a { font-family: var(--f-mono); font-size: 0.72em; text-decoration: none; padding: 0 0.1em; }
+
+/* Outline marks */
+.o-mark { display: inline-block; min-width: 1.7rem; font: 500 0.7rem/1 var(--f-mono); color: var(--ink-3); }
+.outline a.active .o-mark { color: var(--cobalt); }
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 700px) {
+  .art { font-size: 16.5px; }
+  .r-h2 .gutter { flex-direction: row; align-items: baseline; gap: 0.5rem; padding-bottom: 0.3rem; }
+  .s-num { font-size: 1.5rem; }
+  .r-prose .gutter:empty, .r-h3 .gutter:empty { display: none; }
+  .r-fig img, .r-fig .mermaid { padding: 0.5rem; }
+  .secmap .tick span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) { .secmap .tick::before { transition: none; } }
+
+@media print {
+  .secmap { display: none !important; }
+  .r-h2, .r-callout, .r-fig, .r-code { break-inside: avoid-page; }
+}
+
+/* ---------- run lines, pull lines ---------- */
+.r-run .gutter { padding-top: 0.1rem; }
+.r-run .glabel { color: var(--cobalt); text-transform: uppercase; letter-spacing: 0.08em; }
+.runline { margin: 0; max-width: 41rem; font: 0.76rem/1.6 var(--f-mono); color: var(--ink-3); }
+.runline a { text-decoration: none; border-bottom: 1px solid var(--cobalt-wash); }
+.runline a:hover { border-bottom-color: var(--cobalt); }
+
+.r-tldr .gutter { padding-top: 0.3rem; }
+.r-tldr .glabel { color: var(--cobalt); letter-spacing: 0.08em; }
+.pull {
+  margin: 0; max-width: 38rem; padding-left: 1rem; border-left: 2px solid var(--cobalt);
+  font-family: var(--f-prose); font-style: italic; font-size: 1.1em; line-height: 1.5; color: var(--ink);
+}
+
+/* Inline SVG figures (house editorial convention: .m = mono text, .f = serif text). */
+.r-fig svg { display: block; width: 100%; height: auto; }
+.r-fig figure > svg, .r-fig figure > .diagram-inner {
+  background: var(--fig-ground, #fbfbf8); border: 1px solid var(--rule); border-radius: 3px; padding: 0.9rem;
+  box-sizing: border-box;
+}
+.r-fig svg .m { font-family: var(--f-mono); }
+.r-fig svg .f { font-family: var(--f-prose); }

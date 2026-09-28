@@ -1,0 +1,75 @@
+// The book's structure. The build reads this and the content/ sources; nothing here is
+// content. Page order is reading order; `label` is how cross-references name a page.
+{
+  "title": "celld",
+  "subtitle": "Durable Objects on Your Own Storage",
+  "edition": "celld v0.6.0 edition · 2026·09·28",
+  "curator": "Thomas Lockney",
+  "dek": "A mini-book on celld, Deno's self-hosted runtime for Cloudflare's Workers and Durable Objects model: the ideas it inherits, how it keeps its guarantees on machines you control, how to build and operate on it, and executed labs that check every claim against a live node.",
+
+  "sources": {
+    "part0": "content/series/celld-00-background.md",
+    "fg": "content/series/celld-durable-objects.md",
+    "guide": "content/series/celld-step-by-step.md",
+    "review": "content/series/celld-review.md",
+    "labs": ["content/labs/celld-01-cells", "content/labs/celld-02-bindings", "content/labs/celld-03-processes"]
+  },
+
+  "parts": {
+    "front": "",
+    "I": "Part I · Foundations",
+    "II": "Part II · How celld works",
+    "III": "Part III · Building on celld",
+    "IV": "Part IV · Labs",
+    "app": "Appendices",
+    "back": ""
+  },
+
+  "pages": [
+    { "slug": "introduction", "part": "front", "label": "Introduction", "md": "content/book/introduction.md" },
+    { "slug": "foundations", "part": "I", "label": "Chapter 1", "doc": "part0",
+      "title": "Actors, Durable Objects, and durable execution" },
+    { "slug": "how-celld-works", "part": "II", "label": "Part II's introduction", "tocLabel": "Part II", "doc": "fg",
+      "sections": ["what-celld-is"], "promote": true, "title": "What celld is", "kind": "Part II" },
+    { "slug": "cell-model", "part": "II", "label": "Chapter 2", "doc": "fg", "sections": ["cell-model"], "promote": true },
+    { "slug": "bucket", "part": "II", "label": "Chapter 3", "doc": "fg", "sections": ["bucket-coordinator"], "promote": true },
+    { "slug": "ownership", "part": "II", "label": "Chapter 4", "doc": "fg", "sections": ["fencing"], "promote": true },
+    { "slug": "fleet", "part": "II", "label": "Chapter 5", "doc": "fg", "sections": ["running-fleet"], "promote": true,
+      "moveOut": { "subsection": "Release notes", "pointer": "Appendix C records what each release changed, one row per release from v0.4.0 to v0.6.0." } },
+    { "slug": "compatibility", "part": "II", "label": "Chapter 6", "doc": "fg", "sections": ["cloudflare-surface"], "promote": true },
+    { "slug": "designing", "part": "II", "label": "Chapter 7", "doc": "fg", "sections": ["designing-cells"], "promote": true },
+    { "slug": "verdict", "part": "II", "label": "Chapter 8", "doc": "fg", "sections": ["reliability", "security", "tradeoffs"],
+      "title": "Reliability, security, and a verdict" },
+    { "slug": "building", "part": "III", "label": "Chapter 9", "doc": "guide", "title": "Building on celld, step by step" },
+    { "slug": "lab-1", "part": "IV", "label": "Lab 1", "lab": 1, "chapter": 10 },
+    { "slug": "lab-2", "part": "IV", "label": "Lab 2", "lab": 2, "chapter": 11 },
+    { "slug": "lab-3", "part": "IV", "label": "Lab 3", "lab": 3, "chapter": 12 },
+    { "slug": "review", "part": "app", "label": "Appendix A", "doc": "review", "title": "Quick reference and self-quiz" },
+    { "slug": "glossary", "part": "app", "label": "Appendix B", "doc": "fg", "sections": ["glossary"], "promote": true },
+    { "slug": "release-notes", "part": "app", "label": "Appendix C", "doc": "fg", "title": "Release notes and upgrade cliffs",
+      "gather": { "callout": "upgrade cliffs", "from": "running-fleet", "subsection": "Release notes" } },
+    { "slug": "bibliography", "part": "back", "label": "Bibliography", "bibliography": "content/book/bibliography.yaml" },
+    { "slug": "colophon", "part": "back", "label": "Colophon", "md": "content/book/colophon.md" }
+  ],
+
+  // Which bibliography `used_in` keys each page draws on (for its "Sources" footer).
+  "sourcesFor": {
+    "foundations": ["ch1"],
+    "how-celld-works": ["part2"], "cell-model": ["part2"], "bucket": ["part2"], "ownership": ["part2"],
+    "fleet": ["part2"], "compatibility": ["part2"], "designing": ["part2"], "verdict": ["part2"],
+    "building": ["ch9"], "lab-1": ["labs"], "lab-2": ["labs"], "lab-3": ["labs"],
+    "review": ["appA"], "glossary": ["part2"], "release-notes": ["part2"]
+  },
+
+  "glossary": {
+    // Words with a second everyday meaning in this text; never auto-marked.
+    "exclude": ["Process"]
+  },
+
+  // Whole-phrase substitutions applied to book text after cross-reference rewriting.
+  "phrases": [
+    ["the celld series", "this book"],
+    ["this series", "this book"],
+    ["the series", "the book"]
+  ]
+}

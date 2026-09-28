@@ -1,0 +1,70 @@
+/* Bench sheet — notebook layer: cells, execution counts, folding, outputs.
+   Loaded after bench.css by render-notebook.ts. */
+
+.cells { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
+.cell-md .gutter { padding-top: 0; }
+/* A section heading opens a new stretch of the sheet: rule across the full cell width. */
+.cell-md:has(.prose > h2:first-child) { margin-top: 1.9rem; }
+.cell-md:has(.prose > h2:first-child) .row { border-top: 1px solid var(--rule); padding-top: 1.6rem; }
+.cell-md:has(.prose > h2:first-child) .gutter::before {
+  content: "§"; display: block; font-family: var(--f-head); font-size: 1.5rem; line-height: 1.2; color: var(--ink-3);
+}
+.count {
+  font: inherit; color: var(--cobalt); background: none; border: 0; padding: 0; cursor: pointer;
+  white-space: pre;
+}
+.count:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.cell-code.has-error .count { color: var(--signal); }
+
+.src-sum { display: none; padding: 0.5rem 0.95rem; align-items: baseline; gap: 1rem; justify-content: space-between; cursor: pointer; }
+.src-sum code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); }
+.src-sum .lines { flex: none; font-size: 0.7rem; color: var(--ink-3); }
+
+/* Folding: the global toggle folds every cell; a cell's own count button overrides it. */
+.fold-code .cell-code:not(.open) :is(.src, .plate),
+.cell-code.shut :is(.src, .plate) { display: none; }
+.fold-code .cell-code:not(.open) .unclamp,
+.cell-code.shut .unclamp { display: none; }
+.fold-code .cell-code:not(.open) .src-sum,
+.cell-code.shut .src-sum { display: flex; }
+
+/* Long inputs are clamped by notebook.js (never without it). */
+.src.clamped { max-height: 24.5rem; overflow-y: hidden; position: relative;
+  -webkit-mask-image: linear-gradient(#000 78%, transparent); mask-image: linear-gradient(#000 78%, transparent); }
+.unclamp {
+  margin-top: 0.35rem; font: 500 0.7rem/1 var(--f-mono); letter-spacing: 0.04em; color: var(--cobalt);
+  background: none; border: 0; padding: 0.3rem 0; cursor: pointer;
+}
+.unclamp:hover { text-decoration: underline; }
+
+/* ---------- outputs: readouts ---------- */
+.outputs { display: grid; gap: 0.1rem; margin-top: 0.35rem; }
+.hide-out .outputs { display: none; }
+.output .gutter { padding-top: 0.42rem; }
+.olabel { color: var(--ink-3); font-size: 0.68rem; letter-spacing: 0.05em; }
+.out-result .olabel { color: var(--cobalt); }
+.out-stderr .olabel, .out-error .olabel { color: var(--signal); text-transform: uppercase; }
+.obody {
+  min-width: 0;
+  border-left: 1px dashed var(--ink-3);
+  margin-left: 0.95rem;
+  padding: 0.35rem 0 0.35rem 0.85rem;
+}
+.stream {
+  font-family: var(--f-mono); font-size: 0.78rem; line-height: 1.55; color: var(--ink-2);
+  font-variant-ligatures: none;
+  white-space: pre; overflow: auto; max-height: 32rem;
+}
+.out-stderr .obody, .out-error .obody { border-left: 2px solid var(--signal); background: var(--signal-wash); padding-right: 0.8rem; }
+.out-error .stream { color: var(--ink); }
+.rich { overflow-x: auto; font-size: 0.92rem; }
+.rich img, .obody > img { max-width: 100%; height: auto; display: block; background: #fff; border-radius: 2px; }
+.rich table { border-collapse: collapse; font: 0.78rem/1.4 var(--f-mono); font-variant-numeric: tabular-nums; }
+.rich th, .rich td { border-bottom: 1px solid var(--rule); padding: 0.3rem 0.8rem 0.3rem 0; text-align: right; }
+.rich th { color: var(--ink-2); font-weight: 600; }
+.raw { font: 0.8rem/1.55 var(--f-mono); color: var(--ink-2); white-space: pre-wrap; border-left: 1px solid var(--rule); padding-left: 0.95rem; }
+
+/* Preface: a note about the page itself (e.g. how it was exported), set like a readout. */
+.cell-preface .gutter { padding-top: 0.15rem; }
+.cell-preface .olabel { color: var(--cobalt); text-transform: uppercase; letter-spacing: 0.08em; }
+.preface { font-size: 0.9em; color: var(--ink-2); border-left: 1px dashed var(--ink-3); padding-left: 0.95rem; }

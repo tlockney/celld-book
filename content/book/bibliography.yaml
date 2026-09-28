@@ -1,0 +1,313 @@
+# Bibliography for the celld book.
+#
+# Each entry: id, title, and whichever of author / publisher / date / url apply, plus
+# `used_in`: the source documents whose "Sources" line cites it (ch1 = Part 0,
+# part2 = the Field Guide, i.e. Chapters 2–8 and Appendices B–C, ch9 = the guide,
+# labs = Labs 1–3, appA = the review sheet). Attribution is at that level, because that
+# is how the sources were used; no finer per-chapter mapping is claimed.
+# Dates are publication dates where the page states one. Accessed 2026-09-26/27.
+
+accessed: "2026-09-27"
+
+groups:
+  - id: celld-docs
+    title: "celld: documentation at v0.6.0"
+    entries:
+      - id: celld-readme
+        title: "celld documentation (main guide)"
+        publisher: "denoland/celld, docs/README.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/README.md"
+        used_in: [part2, ch9, labs]
+      - id: celld-guarantees
+        title: "What celld guarantees"
+        publisher: "denoland/celld, docs/guarantees.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/guarantees.md"
+        used_in: [part2, ch9]
+      - id: celld-compat
+        title: "Cloudflare compatibility"
+        publisher: "denoland/celld, docs/cloudflare-compat.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/cloudflare-compat.md"
+        used_in: [part2, ch9]
+      - id: celld-limitations
+        title: "Limitations"
+        publisher: "denoland/celld, docs/limitations.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/limitations.md"
+        used_in: [part2]
+      - id: celld-security
+        title: "Security"
+        publisher: "denoland/celld, docs/security.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/security.md"
+        used_in: [part2]
+      - id: celld-telemetry
+        title: "Telemetry"
+        publisher: "denoland/celld, docs/telemetry.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/telemetry.md"
+        used_in: [part2, ch9]
+      - id: celld-testing
+        title: "Testing"
+        publisher: "denoland/celld, docs/testing.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/testing.md"
+        used_in: [part2]
+      - id: celld-wasm
+        title: "WebAssembly"
+        publisher: "denoland/celld, docs/wasm.md at v0.6.0"
+        url: "https://github.com/denoland/celld/blob/v0.6.0/docs/wasm.md"
+        used_in: [part2, ch9]
+      - id: celld-services
+        title: "Service pages: Workers, Durable Objects, Durable Object facets, static assets, cron triggers, Dynamic Workers, KV, Queues, D1, Workflows, R2, Containers"
+        publisher: "denoland/celld, docs/services/ at v0.6.0 (also at celld.dev/docs/services)"
+        url: "https://github.com/denoland/celld/tree/v0.6.0/docs/services"
+        used_in: [part2, ch9, labs, appA]
+      - id: celld-examples
+        title: "Example projects: counter, workflow, queues, facets, container, sandbox, d1"
+        publisher: "denoland/celld, examples/ at v0.6.0"
+        url: "https://github.com/denoland/celld/tree/v0.6.0/examples"
+        used_in: [ch9, labs]
+
+  - id: celld-releases
+    title: "celld: release notes"
+    entries:
+      - id: celld-v0.4.0
+        title: "celld v0.4.0"
+        publisher: "denoland/celld releases"
+        date: "2026-08-28"
+        url: "https://github.com/denoland/celld/releases/tag/v0.4.0"
+        used_in: [part2]
+      - id: celld-v0.4.1
+        title: "celld v0.4.1"
+        publisher: "denoland/celld releases"
+        date: "2026-09-05"
+        url: "https://github.com/denoland/celld/releases/tag/v0.4.1"
+        used_in: [part2, ch9]
+      - id: celld-v0.5.0
+        title: "celld v0.5.0"
+        publisher: "denoland/celld releases"
+        date: "2026-09-15"
+        url: "https://github.com/denoland/celld/releases/tag/v0.5.0"
+        used_in: [part2, ch9]
+      - id: celld-v0.5.1
+        title: "celld v0.5.1"
+        publisher: "denoland/celld releases"
+        date: "2026-09-19"
+        url: "https://github.com/denoland/celld/releases/tag/v0.5.1"
+        used_in: [part2, ch9]
+      - id: celld-v0.6.0
+        title: "celld v0.6.0"
+        publisher: "denoland/celld releases"
+        date: "2026-09-26"
+        url: "https://github.com/denoland/celld/releases/tag/v0.6.0"
+        used_in: [part2, ch9]
+
+  - id: cloudflare-docs
+    title: "Cloudflare documentation"
+    entries:
+      - id: cf-how-workers-works
+        title: "How Workers works"
+        publisher: "Cloudflare Workers docs"
+        url: "https://developers.cloudflare.com/workers/reference/how-workers-works/"
+        used_in: [ch1]
+      - id: cf-bindings
+        title: "Bindings (env)"
+        publisher: "Cloudflare Workers docs"
+        url: "https://developers.cloudflare.com/workers/runtime-apis/bindings/"
+        used_in: [ch1]
+      - id: cf-what-are-dos
+        title: "What are Durable Objects?"
+        publisher: "Cloudflare Durable Objects docs"
+        url: "https://developers.cloudflare.com/durable-objects/concepts/what-are-durable-objects/"
+        used_in: [ch1, part2]
+      - id: cf-websockets
+        title: "Use WebSockets"
+        publisher: "Cloudflare Durable Objects docs"
+        url: "https://developers.cloudflare.com/durable-objects/best-practices/websockets/"
+        used_in: [ch1, part2]
+      - id: cf-alarms
+        title: "Alarms"
+        publisher: "Cloudflare Durable Objects docs"
+        url: "https://developers.cloudflare.com/durable-objects/api/alarms/"
+        used_in: [ch1, part2]
+      - id: cf-rules
+        title: "Rules of Durable Objects"
+        publisher: "Cloudflare Durable Objects docs"
+        url: "https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/"
+        used_in: [ch1]
+      - id: cf-workflows-docs
+        title: "Overview"
+        publisher: "Cloudflare Workflows docs"
+        url: "https://developers.cloudflare.com/workflows/"
+        used_in: [ch1]
+
+  - id: cloudflare-blog
+    title: "Cloudflare blog and talks"
+    entries:
+      - id: cf-do-beta
+        author: "Kenton Varda"
+        title: "Workers Durable Objects Beta: A New Approach to Stateful Serverless"
+        publisher: "The Cloudflare Blog"
+        date: "2020-09-28"
+        url: "https://blog.cloudflare.com/introducing-workers-durable-objects/"
+        used_in: [ch1]
+      - id: cf-do-gates
+        author: "Kenton Varda"
+        title: "Durable Objects: Easy, Fast, Correct — Choose three"
+        publisher: "The Cloudflare Blog"
+        date: "2021-08-03"
+        url: "https://blog.cloudflare.com/durable-objects-easy-fast-correct-choose-three/"
+        used_in: [ch1]
+      - id: cf-do-ga
+        author: "Greg McKeon"
+        title: "Durable Objects — now Generally Available"
+        publisher: "The Cloudflare Blog"
+        date: "2021-11-15"
+        url: "https://blog.cloudflare.com/durable-objects-ga/"
+        used_in: [ch1]
+      - id: cf-do-alarms
+        author: "Matt Alonso and Greg McKeon"
+        title: "Durable Objects Alarms — a wake-up call for your applications"
+        publisher: "The Cloudflare Blog"
+        date: "2022-05-11"
+        url: "https://blog.cloudflare.com/durable-objects-alarms/"
+        used_in: [ch1]
+      - id: cf-js-rpc
+        author: "Kenton Varda"
+        title: "We've added JavaScript-native RPC to Cloudflare Workers"
+        publisher: "The Cloudflare Blog"
+        date: "2024-04-05"
+        url: "https://blog.cloudflare.com/javascript-native-rpc/"
+        used_in: [ch1]
+      - id: cf-sqlite
+        author: "Kenton Varda"
+        title: "Zero-latency SQLite storage in every Durable Object"
+        publisher: "The Cloudflare Blog"
+        date: "2024-09-26"
+        url: "https://blog.cloudflare.com/sqlite-in-durable-objects/"
+        used_in: [ch1]
+      - id: cf-workflows-beta
+        author: "Sid Chatterjee, Matt Silverlock, and Celso Martinho"
+        title: "Build durable applications on Cloudflare Workers: you write the Workflows, we take care of the rest"
+        publisher: "The Cloudflare Blog"
+        date: "2024-10-24"
+        url: "https://blog.cloudflare.com/building-workflows-durable-execution-on-workers/"
+        used_in: [ch1]
+      - id: cf-d1-replication
+        title: "Sequential consistency without borders: How D1 implements global read replication"
+        publisher: "The Cloudflare Blog"
+        date: "2025-04-10"
+        url: "https://blog.cloudflare.com/d1-read-replication-beta/"
+        used_in: [ch1]
+      - id: cf-howard-video
+        title: "How Durable Objects and D1 Work: A Deep Dive with Cloudflare's Josh Howard"
+        publisher: "YouTube (video)"
+        url: "https://www.youtube.com/watch?v=C5-741uQPVU"
+        used_in: [ch1]
+      - id: tane-dos
+        author: "Boris Tane"
+        title: "What even are Cloudflare Durable Objects?"
+        publisher: "boristane.com"
+        date: "2025-11-04"
+        url: "https://boristane.com/blog/what-are-cloudflare-durable-objects/"
+        used_in: [ch1]
+
+  - id: actors
+    title: "The actor model"
+    entries:
+      - id: wiki-actor-model
+        title: "Actor model"
+        publisher: "Wikipedia"
+        url: "https://en.wikipedia.org/wiki/Actor_model"
+        used_in: [ch1]
+      - id: wiki-erlang
+        title: "Erlang (programming language)"
+        publisher: "Wikipedia"
+        url: "https://en.wikipedia.org/wiki/Erlang_(programming_language)"
+        used_in: [ch1]
+      - id: akka-actors
+        title: "How the Actor Model Meets the Needs of Modern, Distributed Systems"
+        publisher: "Akka core documentation"
+        url: "https://doc.akka.io/libraries/akka-core/current/typed/guide/actors-intro.html"
+        used_in: [ch1]
+      - id: orleans-paper
+        author: "Phil Bernstein, Sergey Bykov, Alan Geller, Gabriel Kliot, and Jorgen Thelin"
+        title: "Orleans: Distributed Virtual Actors for Programmability and Scalability"
+        publisher: "Microsoft Research, technical report MSR-TR-2014-41"
+        date: "2014-03"
+        url: "https://www.microsoft.com/en-us/research/publication/orleans-distributed-virtual-actors-for-programmability-and-scalability/"
+        used_in: [ch1]
+      - id: orleans-overview
+        title: "Orleans overview"
+        publisher: "Microsoft Learn"
+        url: "https://learn.microsoft.com/en-us/dotnet/orleans/overview"
+        used_in: [ch1]
+      - id: khourshid-actors
+        author: "David Khourshid"
+        title: "On the actor model (post on X)"
+        publisher: "X"
+        date: "2026-03-15"
+        url: "https://x.com/DavidKPiano/status/2033132659795194367"
+        used_in: [ch1]
+
+  - id: durable-execution
+    title: "Durable execution"
+    entries:
+      - id: temporal-guide
+        title: "The definitive guide to Durable Execution"
+        publisher: "Temporal"
+        date: "2025-05-06"
+        url: "https://temporal.io/blog/what-is-durable-execution"
+        used_in: [ch1]
+      - id: restate-concepts
+        title: "Key Concepts"
+        publisher: "Restate documentation"
+        url: "https://docs.restate.dev/concepts/durable_execution"
+        used_in: [ch1]
+      - id: azure-df-overview
+        title: "Durable Functions overview"
+        publisher: "Microsoft Learn"
+        url: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview"
+        used_in: [ch1]
+      - id: azure-df-entities
+        title: "Durable entities"
+        publisher: "Microsoft Learn"
+        url: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-entities"
+        used_in: [ch1]
+      - id: vanlightly-determinism
+        author: "Jack Vanlightly"
+        title: "Demystifying Determinism in Durable Execution"
+        publisher: "jack-vanlightly.com"
+        date: "2025-11-24"
+        url: "https://jack-vanlightly.com/blog/2025/11/24/demystifying-determinism-in-durable-execution"
+        used_in: [ch1]
+      - id: morling-sqlite
+        author: "Gunnar Morling"
+        title: "Building a Durable Execution Engine With SQLite"
+        publisher: "morling.dev"
+        date: "2025-11-20"
+        url: "https://www.morling.dev/blog/building-durable-execution-engine-with-sqlite/"
+        used_in: [ch1]
+      - id: dbos-lightweight
+        author: "Peter Kraft and Qian Li"
+        title: "Why Durable Execution Should Be Lightweight"
+        publisher: "DBOS"
+        date: "2025-01-12"
+        url: "https://www.dbos.dev/blog/what-is-lightweight-durable-execution"
+        used_in: [ch1]
+      - id: dbos-use-case
+        title: "What's the Use Case for Durable Execution?"
+        publisher: "DBOS"
+        date: "2025-05-26"
+        url: "https://www.dbos.dev/blog/durable-execution-by-default"
+        used_in: [ch1]
+      - id: poliakov-superpowers
+        author: "Alex Poliakov"
+        title: "The Superpowers of Durable Execution"
+        publisher: "LinkedIn"
+        date: "2025-11-06"
+        url: "https://www.linkedin.com/pulse/superpowers-durable-execution-alex-poliakov-xvk1e/"
+        used_in: [ch1]
+      - id: bellaud-temporal
+        author: "John Bellaud"
+        title: "The Imperative of Durable Execution in App Dev: Unveiling Temporal's Framework"
+        publisher: "TechFabric"
+        date: "2024-10-23"
+        url: "https://www.techfabric.com/blog/the-imperative-of-durable-execution-in-app-dev-unveiling-temporals-framework"
+        used_in: [ch1]

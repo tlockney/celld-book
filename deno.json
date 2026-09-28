@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "build": "deno run -A src/build.ts",
+    "series": "deno run -A src/series.ts",
+    "series:install": "deno run -A src/series.ts --install",
+    "serve": "deno run -A jsr:@std/http@1/file-server dist --port 8420",
+    "test": "deno test -A src/",
+    "check": "deno check src/*.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/jsonc": "jsr:@std/jsonc@1",
+    "@std/yaml": "jsr:@std/yaml@1",
+    "linkedom": "npm:linkedom@0.18.12"
+  },
+  "fmt": { "lineWidth": 120, "exclude": ["vendor/", "dist/", "out/", "content/", "labs/"] },
+  "lint": { "exclude": ["vendor/", "dist/", "out/", "labs/"] }
+}

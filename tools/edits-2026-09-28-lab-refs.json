@@ -1,0 +1,8 @@
+[
+  {"lab": "celld-01-cells", "gen": "build_01.py", "from": "without distributed locking, as Part 1 states it:", "to": "without distributed locking, as Part 1 § 02 states it:"},
+  {"lab": "celld-02-bindings", "gen": "build_02.py", "from": "as Part 1 and Part 2 now note.", "to": "as Part 1 § 06 and Part 2 Step 07 now note."},
+  {"lab": "celld-03-processes", "gen": "build_03.py", "from": "Part 1's runtime table lists", "to": "Part 1 § 06's runtime table lists"},
+  {"lab": "celld-03-processes", "gen": "build_03.py", "from": "Part 1's lifecycle diagram labels", "to": "Part 1 § 02's lifecycle diagram labels"},
+  {"lab": "celld-03-processes", "gen": "build_03.py", "from": "(Step 06, Part 1 \"Workflows\")", "to": "(Step 06, Part 1 § 06 \"Workflows\")"},
+  {"lab": "celld-03-processes", "gen": "build_03.py", "from": "(Part 1 \"Cron, alarms, and WebAssembly\")", "to": "(Part 1 § 06 \"Cron, alarms, and WebAssembly\")"}
+]

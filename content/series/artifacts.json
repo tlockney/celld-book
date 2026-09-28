@@ -1,0 +1,12 @@
+{
+  "_comment": "Published claude.ai artifact copies of the series: slug -> artifact URL and gallery title. The artifact variant of each page links to these URLs instead of Reading Room slugs.",
+  "artifacts": {
+    "celld-00-background": { "url": "https://claude.ai/artifact/PxSC5qcKwY5tUohErA2M8w", "title": "celld Background Primer" },
+    "celld-durable-objects": { "url": "https://claude.ai/artifact/7SMTH1RjsFkobY4TW4SLoz", "title": "celld Field Guide" },
+    "celld-step-by-step": { "url": "https://claude.ai/artifact/NwmZsrjJzpANaHvPEeXRQr", "title": "Building on celld" },
+    "celld-01-cells": { "url": "https://claude.ai/artifact/HmHxT3apPrqDg92ECWosfk", "title": "celld Cell Model Notebook" },
+    "celld-02-bindings": { "url": "https://claude.ai/artifact/JcHkrMuYJZ46TxCZhybs3q", "title": "celld Bindings Notebook" },
+    "celld-03-processes": { "url": "https://claude.ai/artifact/AgGzWihp9gHioFoCF1xhYd", "title": "celld Processes Notebook" },
+    "celld-review": { "url": "https://claude.ai/artifact/AFiw95843ug4Xb6L8aH9Cp", "title": "celld Review Sheet" }
+  }
+}
