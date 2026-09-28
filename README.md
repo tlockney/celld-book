@@ -62,6 +62,19 @@ The inline SVG figures use bench-sheet's color tokens (`style="fill:var(--ink, #
 light and dark themes, and sit on the bench sheet's engineering-paper grid (`src/figures.ts`, shared by both
 outputs). `tools/recolor_svgs.py` converted the original editorial palette; use tokens for any new figure.
 
+## Figure zoom
+
+Every figure opens full screen on click, tap, or Enter, with wheel, pinch, drag, double-click, and `+`/`-`/`0` zoom
+(`src/zoom.ts`, ported from the Reading Room's editorial bundle and restyled with bench-sheet tokens). Links inside a
+figure keep working, and on touch screens the "Tap to zoom" hint sits above the drawing instead of over it.
+
+## Downloadable labs
+
+The build publishes `labs/<lab>.ipynb`, the helper `labs/celld_nb.ts` that every lab's setup cell imports, and
+`labs/celld-labs.zip` (all of them plus a README). Each lab page opens with links to them. The downloaded notebooks keep
+their code and outputs exactly as executed; only their prose changes, to book references linked to the published site
+(`siteUrl` in `book.jsonc`).
+
 ## Editing
 
 - **Articles:** edit `content/series/*.md`, then `deno task build` and `deno task series`.
@@ -84,4 +97,6 @@ deno run -A tools/phone.ts /tmp/shots index.html …   # 390px overflow check + 
 deno run -A tools/pwa_check.ts                        # manifest, installability, service worker, offline reading
 deno run -A tools/figshot.ts /tmp/figs dark bucket.html   # every figure on a page, in a forced color scheme
 sh tools/stage_preview.sh DIR                         # stage dist/ for a multi-page claude.ai artifact preview
+deno run -A tools/zoom_check.ts [SHOTDIR]             # figure zoom: open, controls, keyboard, caption links
+python3 tools/downloads_check.py                      # downloads: outputs intact, references, zip, page links
 ```

@@ -17,6 +17,7 @@
     "jsr:@std/path@^1.1.6": "1.1.6",
     "jsr:@std/streams@^1.1.2": "1.1.2",
     "jsr:@std/yaml@1": "1.2.0",
+    "npm:fflate@0.8.2": "0.8.2",
     "npm:highlight.js@11.11.1": "11.11.1",
     "npm:linkedom@0.18.12": "0.18.12",
     "npm:marked-footnote@1.2.4": "1.2.4_marked@15.0.12",
@@ -140,6 +141,9 @@
     "entities@7.0.1": {
       "integrity": "sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA=="
     },
+    "fflate@0.8.2": {
+      "integrity": "sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A=="
+    },
     "highlight.js@11.11.1": {
       "integrity": "sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w=="
     },
@@ -190,6 +194,7 @@
       "jsr:@std/assert@1",
       "jsr:@std/jsonc@1",
       "jsr:@std/yaml@1",
+      "npm:fflate@0.8.2",
       "npm:linkedom@0.18.12"
     ]
   }
