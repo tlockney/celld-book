@@ -1,6 +1,6 @@
 /**
  * The book shell around bench-sheet pages: a top bar, a contents drawer, previous/next
- * links, and the glossary popover. Styling uses bench-sheet's color tokens, so the light and
+ * links (plus a bottom bar at phone width), and the glossary popover. Styling uses bench-sheet's color tokens, so the light and
  * dark themes carry over unchanged.
  */
 
@@ -75,6 +75,26 @@ export function pager(prev?: TocEntry, next?: TocEntry): string {
   return `<nav class="pager" aria-label="Previous and next">${cell(prev, "prev")}${cell(next, "next")}</nav>`;
 }
 
+/**
+ * The phone-width bottom bar: previous, contents, next. It is hidden above 40rem, where the top
+ * bar and the end-of-page pager are enough, and BOOK_JS tucks it away while the reader scrolls down.
+ */
+export function bottomNav(prev?: TocEntry, next?: TocEntry): string {
+  const cell = (e: TocEntry | undefined, rel: "prev" | "next") => {
+    const text = rel === "prev" ? "‹ Previous" : "Next ›";
+    return e
+      ? `<a class="bn-${rel}" rel="${rel}" href="${e.file}" aria-label="${rel === "prev" ? "Previous" : "Next"}: ${
+        esc(entryName(e))
+      }">${text}</a>`
+      : `<span class="bn-${rel}" aria-hidden="true"></span>`;
+  };
+  return `<nav class="booknav" aria-label="Chapter navigation">${
+    cell(prev, "prev")
+  }<button class="bn-toc" type="button" aria-expanded="false" aria-controls="booktoc">Contents</button>${
+    cell(next, "next")
+  }</nav>`;
+}
+
 export const BOOK_CSS = `
 /* ── book shell ─────────────────────────────────────────────────────────── */
 .bookbar {
@@ -127,11 +147,35 @@ export const BOOK_CSS = `
 .pager .pg-next { text-align: right; }
 .pg-dir { font-size: .78rem; color: var(--ink-3); letter-spacing: .04em; }
 .pg-name { font-size: .95rem; }
+.booknav { display: none; }
 @media (max-width: 40rem) {
   .bookbar .bb-here { display: none; }
   .pager { grid-template-columns: 1fr; }
   .pager .pg-next { text-align: left; }
+  /* Phone bottom bar: slim, quiet, and out of the way while reading. */
+  body:has(.booknav) { padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); }
+  .booknav {
+    position: fixed; inset: auto 0 0 0; z-index: 40;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: .3rem .75rem calc(.3rem + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border-top: 1px solid var(--rule);
+    font-family: var(--f-head); font-size: .9rem;
+    transition: transform .2s ease;
+  }
+  .booknav.bn-away { transform: translateY(100%); }
+  .booknav a, .booknav .bn-toc {
+    display: inline-flex; align-items: center; min-height: 2.4rem; padding: 0 .5rem;
+    color: var(--ink-2); text-decoration: none; border-radius: 4px;
+  }
+  .booknav .bn-next { justify-self: end; }
+  .booknav .bn-toc { font: inherit; color: var(--ink); background: none; border: 1px solid var(--rule); cursor: pointer; }
+  .booknav a:active, .booknav .bn-toc:active { background: var(--cobalt-wash); color: var(--cobalt); }
+  .booknav a:focus-visible, .booknav .bn-toc:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 1px; }
 }
+@media (prefers-reduced-motion: reduce) { .booknav { transition: none; } }
+@media print { .booknav { display: none !important; } }
 
 /* glossary terms */
 .gloss { text-decoration: underline dotted var(--ink-3); text-underline-offset: .18em; cursor: help; }
@@ -169,24 +213,41 @@ export const BOOK_CSS = `
 `;
 
 export const BOOK_JS = `
-// Book shell: contents drawer and glossary popover. The pages read completely without it.
+// Book shell: contents drawer, phone bottom bar, and glossary popover. The pages read completely without it.
 (() => {
   const toc = document.getElementById("booktoc");
   const scrim = document.querySelector(".bt-scrim");
-  const openBtn = document.querySelector(".bb-toc");
+  const openBtns = [...document.querySelectorAll(".bb-toc, .bn-toc")];
   const closeBtn = document.querySelector(".bt-close");
-  if (toc && openBtn) {
+  if (toc && openBtns.length) {
+    let opener = openBtns[0];
     const setOpen = (open) => {
       toc.hidden = !open;
       if (scrim) scrim.hidden = !open;
-      openBtn.setAttribute("aria-expanded", String(open));
+      openBtns.forEach((b) => b.setAttribute("aria-expanded", String(open)));
       if (open) (toc.querySelector('[aria-current="page"]') || toc.querySelector("a"))?.focus();
-      else openBtn.focus();
+      else opener.focus();
     };
-    openBtn.addEventListener("click", () => setOpen(toc.hidden));
+    openBtns.forEach((b) => b.addEventListener("click", () => { opener = b; setOpen(toc.hidden); }));
     closeBtn?.addEventListener("click", () => setOpen(false));
     scrim?.addEventListener("click", () => setOpen(false));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !toc.hidden) setOpen(false); });
+  }
+
+  // Phone bottom bar: tuck it away while reading down, bring it back on any scroll up, near the top,
+  // at the end of the page, or when it takes keyboard focus.
+  const nav = document.querySelector(".booknav");
+  if (nav) {
+    let lastY = scrollY;
+    const update = () => {
+      const y = scrollY;
+      const atEnd = y + innerHeight >= document.documentElement.scrollHeight - 48;
+      if (y < 64 || atEnd || y < lastY - 6) nav.classList.remove("bn-away");
+      else if (y > lastY + 6) nav.classList.add("bn-away");
+      if (Math.abs(y - lastY) > 6) lastY = y;
+    };
+    addEventListener("scroll", update, { passive: true });
+    nav.addEventListener("focusin", () => nav.classList.remove("bn-away"));
   }
 
   const terms = document.querySelectorAll(".gloss");
