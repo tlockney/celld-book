@@ -75,39 +75,39 @@ Every cell starts inactive. One 8 GB node holds ~1,000 resident cells, which pr
 <text class="f" font-size="12.5" text-anchor="middle" x="114" y="155" style="fill:var(--ink-2, #4a5763)">only an object in the bucket</text>
 <text class="m" font-size="9" text-anchor="middle" x="114" y="177" style="fill:var(--ink-2, #4a5763)">no node holds it</text>
 <text class="m" font-size="9" text-anchor="middle" x="114" y="191" style="fill:var(--ink-2, #4a5763)">≈ zero cost</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="114" y="209" style="fill:var(--cobalt, #2a56a0)">every cell starts here</text>
+<text class="m" font-size="9" text-anchor="middle" x="114" y="209" style="fill:var(--cobalt, #2a56a0)">every cell starts here</text>
 <!-- RESIDENT -->
 <rect height="150" rx="6" stroke-width="1.5" width="200" x="340" y="90" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="12.5" font-weight="600" text-anchor="middle" x="440" y="116" style="fill:var(--ink, #1b252e)">RESIDENT</text>
 <text class="f" font-size="12.5" text-anchor="middle" x="440" y="136" style="fill:var(--ink-2, #4a5763)">in memory, one thread</text>
 <rect height="46" rx="3" width="80" x="356" y="148" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="9.5" text-anchor="middle" x="396" y="167" style="fill:var(--ink-2, #4a5763)">ACTIVE</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="396" y="182" style="fill:var(--ink-2, #4a5763)">serving work</text>
+<text class="m" font-size="9" text-anchor="middle" x="396" y="182" style="fill:var(--ink-2, #4a5763)">serving work</text>
 <rect height="46" rx="3" width="80" x="444" y="148" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="9.5" text-anchor="middle" x="484" y="167" style="fill:var(--ink-2, #4a5763)">IDLE</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="484" y="182" style="fill:var(--ink-2, #4a5763)">waiting</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="212" style="fill:var(--ink-2, #4a5763)">~1,000 per 8 GB node</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="226" style="fill:var(--ink-2, #4a5763)">≈ $0.05/month each</text>
+<text class="m" font-size="9" text-anchor="middle" x="484" y="182" style="fill:var(--ink-2, #4a5763)">waiting</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="212" style="fill:var(--ink-2, #4a5763)">~1,000 per 8 GB node</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="226" style="fill:var(--ink-2, #4a5763)">≈ $0.05/month each</text>
 <!-- HIBERNATED -->
 <rect height="120" rx="6" stroke-width="1.5" width="200" x="666" y="105" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="12.5" font-weight="600" text-anchor="middle" x="766" y="133" style="fill:var(--ink, #1b252e)">HIBERNATED</text>
 <text class="f" font-size="12.5" text-anchor="middle" x="766" y="155" style="fill:var(--ink-2, #4a5763)">evicted, but still placed</text>
 <text class="m" font-size="9" text-anchor="middle" x="766" y="177" style="fill:var(--ink-2, #4a5763)">WS clients stay connected</text>
 <text class="m" font-size="9" text-anchor="middle" x="766" y="191" style="fill:var(--ink-2, #4a5763)">stays on its node</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="766" y="209" style="fill:var(--ink-2, #4a5763)">the only two differences</text>
+<text class="m" font-size="9" text-anchor="middle" x="766" y="209" style="fill:var(--ink-2, #4a5763)">the only two differences</text>
 <!-- activation -->
 <path d="M 218 168 L 336 168" fill="none" marker-end="url(#f2a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="277" y="140" style="fill:var(--ink-2, #4a5763)">activation</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="277" y="152" style="fill:var(--ink-2, #4a5763)">restore from bucket</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="277" y="188" style="fill:var(--ink-2, #4a5763)">constructor runs</text>
+<text class="m" font-size="9" text-anchor="middle" x="277" y="140" style="fill:var(--ink-2, #4a5763)">activation</text>
+<text class="m" font-size="9" text-anchor="middle" x="277" y="152" style="fill:var(--ink-2, #4a5763)">restore from bucket</text>
+<text class="m" font-size="9" text-anchor="middle" x="277" y="188" style="fill:var(--ink-2, #4a5763)">constructor runs</text>
 <!-- evict -->
 <path d="M 544 142 L 662 142" fill="none" marker-end="url(#f2a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="603" y="118" style="fill:var(--ink-2, #4a5763)">evict idle</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="603" y="130" style="fill:var(--ink-2, #4a5763)">memory freed</text>
+<text class="m" font-size="9" text-anchor="middle" x="603" y="118" style="fill:var(--ink-2, #4a5763)">evict idle</text>
+<text class="m" font-size="9" text-anchor="middle" x="603" y="130" style="fill:var(--ink-2, #4a5763)">memory freed</text>
 <!-- wake -->
 <path d="M 662 196 L 544 196" fill="none" marker-end="url(#f2a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="603" y="214" style="fill:var(--ink-2, #4a5763)">a message wakes it</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="603" y="226" style="fill:var(--ink-2, #4a5763)">constructor runs again</text>
+<text class="m" font-size="9" text-anchor="middle" x="603" y="214" style="fill:var(--ink-2, #4a5763)">a message wakes it</text>
+<text class="m" font-size="9" text-anchor="middle" x="603" y="226" style="fill:var(--ink-2, #4a5763)">constructor runs again</text>
 <!-- release bus -->
 <path d="M 766 227 V 278 Q 766 288 756 288 H 128 Q 118 288 118 278 V 233" fill="none" marker-end="url(#f2d)" stroke-dasharray="4 3" stroke-width="1.5" style="stroke:var(--cobalt, #2a56a0)"></path>
 <path d="M 440 242 V 288" fill="none" stroke-dasharray="4 3" stroke-width="1.5" style="stroke:var(--cobalt, #2a56a0)"></path>
@@ -149,14 +149,14 @@ This is the architectural centerpiece. There is **no membership protocol, no fai
 <text class="m" font-size="11.5" font-weight="600" text-anchor="middle" x="135" y="132" style="fill:var(--ink, #1b252e)">celld node A</text>
 <rect height="22" rx="3" stroke-width="1.3" width="154" x="58" y="148" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="9" x="66" y="163" style="fill:var(--cobalt, #2a56a0)">chat-1 · sqlite</text>
-<text class="m" font-size="7.5" text-anchor="end" x="204" y="163" style="fill:var(--cobalt, #2a56a0)">OWNER</text>
+<text class="m" font-size="8.5" text-anchor="end" x="204" y="163" style="fill:var(--cobalt, #2a56a0)">OWNER</text>
 <rect height="22" rx="3" width="154" x="58" y="174" style="fill:var(--paper-2, #ebeee9);stroke:var(--rule, #d3d9d4)"></rect>
 <text class="m" font-size="9" x="66" y="189" style="fill:var(--ink-2, #4a5763)">user-42 · sqlite</text>
 <rect height="22" rx="3" width="154" x="58" y="200" style="fill:var(--paper-2, #ebeee9);stroke:var(--rule, #d3d9d4)"></rect>
 <text class="m" font-size="9" x="66" y="215" style="fill:var(--ink-2, #4a5763)">__d1:ledger · sqlite</text>
 <text class="m" font-size="9" text-anchor="middle" x="135" y="236" style="fill:var(--ink-2, #4a5763)">… one thread each</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="135" y="254" style="fill:var(--cobalt, #2a56a0)">warm path · zero bucket ops</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="135" y="267" style="fill:var(--cobalt, #2a56a0)">p50 ≈ 1.1 ms</text>
+<text class="m" font-size="9" text-anchor="middle" x="135" y="254" style="fill:var(--cobalt, #2a56a0)">warm path · zero bucket ops</text>
+<text class="m" font-size="9" text-anchor="middle" x="135" y="267" style="fill:var(--cobalt, #2a56a0)">p50 ≈ 1.1 ms</text>
 <!-- node B — ingress, not owner -->
 <rect height="170" rx="6" stroke-width="1.5" width="210" x="335" y="110" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="11.5" font-weight="600" text-anchor="middle" x="440" y="132" style="fill:var(--ink, #1b252e)">celld node B</text>
@@ -167,8 +167,8 @@ This is the architectural centerpiece. There is **no membership protocol, no fai
 <rect height="22" rx="3" width="154" x="363" y="200" style="fill:var(--paper-2, #ebeee9);stroke:var(--rule, #d3d9d4)"></rect>
 <text class="m" font-size="9" x="371" y="215" style="fill:var(--ink-2, #4a5763)">user-7 · sqlite</text>
 <text class="m" font-size="9" text-anchor="middle" x="440" y="236" style="fill:var(--ink-2, #4a5763)">… one thread each</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="254" style="fill:var(--ink-2, #4a5763)">any node can ingress</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="267" style="fill:var(--ink-2, #4a5763)">a non-owner call is proxied</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="254" style="fill:var(--ink-2, #4a5763)">any node can ingress</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="267" style="fill:var(--ink-2, #4a5763)">a non-owner call is proxied</text>
 <!-- node C -->
 <rect height="170" rx="6" stroke-width="1.5" width="210" x="640" y="110" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="11.5" font-weight="600" text-anchor="middle" x="745" y="132" style="fill:var(--ink, #1b252e)">celld node C</text>
@@ -179,37 +179,37 @@ This is the architectural centerpiece. There is **no membership protocol, no fai
 <rect height="22" rx="3" stroke-dasharray="4 3" width="154" x="668" y="200" style="fill:var(--paper-2, #ebeee9);stroke:var(--rule, #d3d9d4)"></rect>
 <text class="m" font-size="9" x="676" y="215" style="fill:var(--ink-2, #4a5763)">free capacity</text>
 <text class="m" font-size="9" text-anchor="middle" x="745" y="236" style="fill:var(--ink-2, #4a5763)">… one thread each</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="745" y="254" style="fill:var(--ink-2, #4a5763)">balancing hands it</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="745" y="267" style="fill:var(--ink-2, #4a5763)">hibernated cells from full peers</text>
+<text class="m" font-size="9" text-anchor="middle" x="745" y="254" style="fill:var(--ink-2, #4a5763)">balancing hands it</text>
+<text class="m" font-size="9" text-anchor="middle" x="745" y="267" style="fill:var(--ink-2, #4a5763)">hibernated cells from full peers</text>
 <!-- peer tunnel B → A -->
 <path d="M 331 178 L 246 178" fill="none" marker-end="url(#f1c)" stroke-width="1.6" style="stroke:var(--cobalt, #2a56a0)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="288" y="158" style="fill:var(--cobalt, #2a56a0)">peer tunnel</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="288" y="169" style="fill:var(--cobalt, #2a56a0)">to the owner</text>
-<text class="m" font-size="8" text-anchor="middle" x="288" y="196" style="fill:var(--ink-2, #4a5763)">fetch · RPC · WS</text>
-<text class="m" font-size="8" text-anchor="middle" x="288" y="207" style="fill:var(--ink-2, #4a5763)">versioned</text>
-<text class="m" font-size="8" text-anchor="middle" x="594" y="178" style="fill:var(--ink-2, #4a5763)">no join command</text>
-<text class="m" font-size="8" text-anchor="middle" x="594" y="190" style="fill:var(--ink-2, #4a5763)">no membership list</text>
+<text class="m" font-size="9" text-anchor="middle" x="288" y="158" style="fill:var(--cobalt, #2a56a0)">peer tunnel</text>
+<text class="m" font-size="9" text-anchor="middle" x="288" y="169" style="fill:var(--cobalt, #2a56a0)">to the owner</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="288" y="196" style="fill:var(--ink-2, #4a5763)">fetch · RPC · WS</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="288" y="207" style="fill:var(--ink-2, #4a5763)">versioned</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="594" y="178" style="fill:var(--ink-2, #4a5763)">no join command</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="594" y="190" style="fill:var(--ink-2, #4a5763)">no membership list</text>
 <!-- replication / restore -->
 <path d="M 135 282 L 135 336" fill="none" marker-end="url(#f1a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 440 282 L 440 336" fill="none" marker-end="url(#f1a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 745 336 L 745 284" fill="none" marker-end="url(#f1a)" stroke-dasharray="4 3" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <text class="m" font-size="9" x="145" y="302" style="fill:var(--cobalt, #2a56a0)">LTX segments</text>
-<text class="m" font-size="8.5" x="145" y="315" style="fill:var(--ink-2, #4a5763)">continuous · RPO=0</text>
+<text class="m" font-size="9" x="145" y="315" style="fill:var(--ink-2, #4a5763)">continuous · RPO=0</text>
 <text class="m" font-size="9" x="450" y="308" style="fill:var(--cobalt, #2a56a0)">every cell, every write</text>
 <text class="m" font-size="9" text-anchor="end" x="735" y="302" style="fill:var(--ink-2, #4a5763)">restore on activation</text>
-<text class="m" font-size="8.5" text-anchor="end" x="735" y="315" style="fill:var(--ink-2, #4a5763)">lease discovery</text>
+<text class="m" font-size="9" text-anchor="end" x="735" y="315" style="fill:var(--ink-2, #4a5763)">lease discovery</text>
 <!-- bucket -->
 <rect height="86" rx="6" stroke-width="1.6" width="820" x="30" y="340" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="12" font-weight="600" text-anchor="middle" x="440" y="364" style="fill:var(--ink, #1b252e)">S3-compatible bucket—the only coordinator</text>
 <rect height="38" rx="3" width="246" x="52" y="378" style="fill:var(--plate, #e6ebeb);stroke:var(--rule, #d3d9d4)"></rect>
-<text class="m" font-size="8.5" x="64" y="394" style="fill:var(--ink-2, #4a5763)">ownership records · node leases</text>
-<text class="m" font-size="8.5" x="64" y="408" style="fill:var(--ink-2, #4a5763)">one conditional write per claim</text>
+<text class="m" font-size="9" x="64" y="394" style="fill:var(--ink-2, #4a5763)">ownership records · node leases</text>
+<text class="m" font-size="9" x="64" y="408" style="fill:var(--ink-2, #4a5763)">one conditional write per claim</text>
 <rect height="38" rx="3" width="246" x="316" y="378" style="fill:var(--plate, #e6ebeb);stroke:var(--rule, #d3d9d4)"></rect>
-<text class="m" font-size="8.5" x="328" y="394" style="fill:var(--ink-2, #4a5763)">cells/&lt;id&gt;/ltx/e&lt;epoch&gt;/</text>
-<text class="m" font-size="8.5" x="328" y="408" style="fill:var(--ink-2, #4a5763)">LTX segments · inactive cells</text>
+<text class="m" font-size="9" x="328" y="394" style="fill:var(--ink-2, #4a5763)">cells/&lt;id&gt;/ltx/e&lt;epoch&gt;/</text>
+<text class="m" font-size="9" x="328" y="408" style="fill:var(--ink-2, #4a5763)">LTX segments · inactive cells</text>
 <rect height="38" rx="3" width="248" x="580" y="378" style="fill:var(--plate, #e6ebeb);stroke:var(--rule, #d3d9d4)"></rect>
-<text class="m" font-size="8.5" x="592" y="394" style="fill:var(--ink-2, #4a5763)">deploy/ · telemetry/ · r2/ · kv</text>
-<text class="m" font-size="8.5" x="592" y="408" style="fill:var(--ink-2, #4a5763)">large KV values · R2 objects</text>
+<text class="m" font-size="9" x="592" y="394" style="fill:var(--ink-2, #4a5763)">deploy/ · telemetry/ · r2/ · kv</text>
+<text class="m" font-size="9" x="592" y="408" style="fill:var(--ink-2, #4a5763)">large KV values · R2 objects</text>
 <text class="m" font-size="10" text-anchor="middle" x="440" y="446" style="fill:var(--ink-2, #4a5763)">no membership protocol · no failure detector · no consensus service—discovery is the leases in the bucket</text>
 </svg>
 <figcaption>The bucket supplies discovery and authority: nodes find each other through the leases in it, a node acquires a cell with one atomic write, and every cell's state is continuously replicated there as LTX segments. What it does <em>not</em> supply is network reachability. Peers talk over a private network or an encrypted overlay. Note the consequence of one-owner-per-cell: any node can take the request, but only the owner can run the cell, so a call that lands elsewhere is proxied to the owner over the versioned peer tunnel. That hop is why routing a cell's traffic to its owner is worth doing when latency matters.</figcaption>
@@ -244,8 +244,8 @@ The durability mechanism depends on fleet size, and it is explicit.
 <path d="M 620 48 L 620 98" fill="none" stroke-width="1.6" style="stroke:var(--cobalt, #2a56a0)"></path>
 <circle cx="620" cy="73" r="4.5" style="fill:var(--cobalt, #2a56a0)"></circle>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="620" y="41" style="fill:var(--cobalt, #2a56a0)">ack</text>
-<text class="m" font-size="8.5" x="634" y="70" style="fill:var(--ink-2, #4a5763)">one storage round trip —</text>
-<text class="m" font-size="8.5" x="634" y="83" style="fill:var(--ink-2, #4a5763)">the floor for a durable write</text>
+<text class="m" font-size="9" x="634" y="70" style="fill:var(--ink-2, #4a5763)">one storage round trip —</text>
+<text class="m" font-size="9" x="634" y="83" style="fill:var(--ink-2, #4a5763)">the floor for a durable write</text>
 <!-- lane B: two or more nodes -->
 <text class="m" font-size="11" font-weight="600" x="20" y="140" style="fill:var(--cobalt, #2a56a0)">TWO+ NODES</text>
 <text class="f" font-size="12.5" x="20" y="157" style="fill:var(--ink-2, #4a5763)">fleet proof</text>
@@ -256,10 +256,10 @@ The durability mechanism depends on fleet size, and it is explicit.
 <path d="M 330 118 L 330 168" fill="none" stroke-width="1.6" style="stroke:var(--cobalt, #2a56a0)"></path>
 <circle cx="330" cy="143" r="4.5" style="fill:var(--cobalt, #2a56a0)"></circle>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="330" y="111" style="fill:var(--cobalt, #2a56a0)">ack</text>
-<text class="m" font-size="8.5" x="345" y="182" style="fill:var(--cobalt, #2a56a0)">v0.3.0 measured ≈10× lower write latency and 100× fewer Class A bucket operations</text>
+<text class="m" font-size="9" x="345" y="182" style="fill:var(--cobalt, #2a56a0)">v0.3.0 measured ≈10× lower write latency and 100× fewer Class A bucket operations</text>
 <!-- time axis -->
 <path d="M 200 206 L 840 206" fill="none" marker-end="url(#f1ba)" stroke-width="1.2" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" x="200" y="222" style="fill:var(--ink-2, #4a5763)">time—not to scale</text>
+<text class="m" font-size="9" x="200" y="222" style="fill:var(--ink-2, #4a5763)">time—not to scale</text>
 <!-- notes -->
 <rect height="56" rx="4" width="840" x="20" y="238" style="fill:var(--plate, #e6ebeb);stroke:var(--rule, #d3d9d4)"></rect>
 <text class="m" font-size="9" x="36" y="258" style="fill:var(--ink-2, #4a5763)">the ensemble—the owner picks one or two followers, never itself, so three nodes hold three copies of an acknowledged write,</text>
@@ -327,48 +327,48 @@ Each cell has one **ownership record** in the bucket. It names the **owner** (th
 <!-- lane A -->
 <rect height="64" rx="4" stroke-width="1.2" width="160" x="136" y="44" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="216" y="66" style="fill:var(--ink, #1b252e)">A owns chat-1</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="216" y="82" style="fill:var(--ink-2, #4a5763)">epoch e1 · lease held</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="216" y="96" style="fill:var(--ink-2, #4a5763)">renewed each ~3.3 s</text>
+<text class="m" font-size="9" text-anchor="middle" x="216" y="82" style="fill:var(--ink-2, #4a5763)">epoch e1 · lease held</text>
+<text class="m" font-size="9" text-anchor="middle" x="216" y="96" style="fill:var(--ink-2, #4a5763)">renewed each ~3.3 s</text>
 <rect height="64" rx="4" stroke-width="1.2" width="160" x="316" y="44" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="396" y="66" style="fill:var(--ink, #1b252e)">A stops renewing</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="396" y="82" style="fill:var(--ink-2, #4a5763)">paused, or cut off</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="396" y="96" style="fill:var(--ink-2, #4a5763)">from the bucket</text>
+<text class="m" font-size="9" text-anchor="middle" x="396" y="82" style="fill:var(--ink-2, #4a5763)">paused, or cut off</text>
+<text class="m" font-size="9" text-anchor="middle" x="396" y="96" style="fill:var(--ink-2, #4a5763)">from the bucket</text>
 <rect height="76" rx="4" stroke-width="1.4" width="222" x="640" y="36" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="751" y="58" style="fill:var(--cobalt, #2a56a0)">A comes back</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="751" y="74" style="fill:var(--ink-2, #4a5763)">PUT → cells/chat-1/ltx/e1/</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="751" y="88" style="fill:var(--ink-2, #4a5763)">re-reads the record → B · e2</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="751" y="102" style="fill:var(--cobalt, #2a56a0)">not acked → SELF-FENCE, exit 3</text>
+<text class="m" font-size="9" text-anchor="middle" x="751" y="74" style="fill:var(--ink-2, #4a5763)">PUT → cells/chat-1/ltx/e1/</text>
+<text class="m" font-size="9" text-anchor="middle" x="751" y="88" style="fill:var(--ink-2, #4a5763)">re-reads the record → B · e2</text>
+<text class="m" font-size="9" text-anchor="middle" x="751" y="102" style="fill:var(--cobalt, #2a56a0)">not acked → SELF-FENCE, exit 3</text>
 <!-- lane bucket -->
 <rect height="54" rx="4" stroke-dasharray="5 3" stroke-width="1.2" width="160" x="136" y="140" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="9" text-anchor="middle" x="216" y="162" style="fill:var(--ink-2, #4a5763)">chat-1 → node A · e1</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="216" y="180" style="fill:var(--ink-2, #4a5763)">superseded</text>
+<text class="m" font-size="9" text-anchor="middle" x="216" y="180" style="fill:var(--ink-2, #4a5763)">superseded</text>
 <path d="M 300 167 L 396 167" fill="none" marker-end="url(#f3a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="348" y="187" style="fill:var(--ink-2, #4a5763)">CAS · one winner</text>
+<text class="m" font-size="9" text-anchor="middle" x="348" y="187" style="fill:var(--ink-2, #4a5763)">CAS · one winner</text>
 <rect height="54" rx="4" stroke-width="1.5" width="170" x="400" y="140" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="9" text-anchor="middle" x="485" y="162" style="fill:var(--cobalt, #2a56a0)">chat-1 → node B · e2</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="485" y="180" style="fill:var(--ink-2, #4a5763)">the live record</text>
+<text class="m" font-size="9" text-anchor="middle" x="485" y="180" style="fill:var(--ink-2, #4a5763)">the live record</text>
 <rect height="34" rx="3" stroke-dasharray="5 3" stroke-width="1.1" width="250" x="610" y="130" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
-<text class="m" font-size="8.5" x="622" y="145" style="fill:var(--ink-2, #4a5763)">cells/chat-1/ltx/e1/</text>
-<text class="m" font-size="8" x="622" y="158" style="fill:var(--ink-2, #4a5763)">superseded—a restore never reads it</text>
+<text class="m" font-size="9" x="622" y="145" style="fill:var(--ink-2, #4a5763)">cells/chat-1/ltx/e1/</text>
+<text class="m" font-size="8.5" x="622" y="158" style="fill:var(--ink-2, #4a5763)">superseded—a restore never reads it</text>
 <rect height="34" rx="3" stroke-width="1.3" width="250" x="610" y="172" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
-<text class="m" font-size="8.5" x="622" y="187" style="fill:var(--ink, #1b252e)">cells/chat-1/ltx/e2/</text>
-<text class="m" font-size="8" x="622" y="200" style="fill:var(--ink-2, #4a5763)">the live lineage</text>
+<text class="m" font-size="9" x="622" y="187" style="fill:var(--ink, #1b252e)">cells/chat-1/ltx/e2/</text>
+<text class="m" font-size="8.5" x="622" y="200" style="fill:var(--ink-2, #4a5763)">the live lineage</text>
 <!-- lane B -->
 <rect height="56" rx="4" stroke-width="1.2" width="158" x="406" y="228" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="485" y="250" style="fill:var(--ink, #1b252e)">B acquires</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="485" y="266" style="fill:var(--ink-2, #4a5763)">conditional write</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="485" y="278" style="fill:var(--ink-2, #4a5763)">epoch e1 → e2</text>
+<text class="m" font-size="9" text-anchor="middle" x="485" y="266" style="fill:var(--ink-2, #4a5763)">conditional write</text>
+<text class="m" font-size="9" text-anchor="middle" x="485" y="278" style="fill:var(--ink-2, #4a5763)">epoch e1 → e2</text>
 <rect height="56" rx="4" stroke-width="1.2" width="170" x="596" y="228" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="681" y="250" style="fill:var(--ink, #1b252e)">B restores</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="681" y="266" style="fill:var(--ink-2, #4a5763)">reads the e2 lineage</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="681" y="278" style="fill:var(--ink-2, #4a5763)">then serves chat-1</text>
+<text class="m" font-size="9" text-anchor="middle" x="681" y="266" style="fill:var(--ink-2, #4a5763)">reads the e2 lineage</text>
+<text class="m" font-size="9" text-anchor="middle" x="681" y="278" style="fill:var(--ink-2, #4a5763)">then serves chat-1</text>
 <!-- cross-lane -->
 <path d="M 485 226 L 485 198" fill="none" marker-end="url(#f3a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 681 210 L 681 226" fill="none" marker-end="url(#f3a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 700 114 L 700 128" fill="none" marker-end="url(#f3c)" stroke-dasharray="4 3" stroke-width="1.4" style="stroke:var(--cobalt, #2a56a0)"></path>
 <path d="M 574 150 C 620 150, 618 78, 636 78" fill="none" marker-end="url(#f3c)" stroke-dasharray="4 3" stroke-width="1.4" style="stroke:var(--cobalt, #2a56a0)"></path>
 <path d="M 126 302 L 866 302" fill="none" marker-end="url(#f3a)" stroke-width="1.1" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" x="126" y="296" style="fill:var(--ink-2, #4a5763)">time</text>
+<text class="m" font-size="9" x="126" y="296" style="fill:var(--ink-2, #4a5763)">time</text>
 <rect height="54" rx="4" stroke-width="1.2" width="852" x="14" y="320" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" text-anchor="middle" x="440" y="342" style="fill:var(--ink, #1b252e)">The epoch in the object key is the fence, so the data path needs no conditional writes at all.</text>
 <text class="f" font-size="12.5" text-anchor="middle" x="440" y="362" style="fill:var(--ink-2, #4a5763)">Only the ownership record is a compare-and-swap; every LTX segment is a plain PUT under its own epoch prefix.</text>
@@ -392,6 +392,107 @@ A failed renewal retries before the authority expires. `RUST_LOG=celld=info,stor
 
 - **Run under a supervisor** (systemd, Docker restart policy, Kubernetes) with no attempt limit, waiting at least one lease lifetime between attempts. A node that cannot acquire a lease at startup retries rather than exiting. A restarting node first recovers its previous session's log before it takes a lease. If a peer is already recovering that log, it waits behind the peer's heartbeat and takes over only when the heartbeat stops, which is what makes a whole-fleet restart recover every acknowledged write.
 - **A request is refused before the fence runs.** celld compares the current time against the published expiry on every route, so a node with a lapsed lease refuses the request. The dispatch check keeps one owner per cell even while the fence is in flight.
+
+<figure class="topology">
+<svg aria-labelledby="f6-t f6-d" role="img" viewbox="0 0 880 418" xmlns="http://www.w3.org/2000/svg">
+<title id="f6-t">Self-fencing, read as a sequence</title>
+<desc id="f6-d">Three lanes over time. The node renews its lease in the bucket every 3.3 seconds, a third of the 10,000 millisecond CELLD_TTL_MS. When renewals stop landing, it retries before the expiry; once the published expiry passes, every route refuses requests. The node then fences itself: it stops each active cell, fails incomplete requests, logs SELF-FENCE, and exits with code 3, naming its cause with one of three events: node_lease_watchdog_fence when the lease expired, node_lease_record_missing_fence when the record is gone, and node_lease_record_mismatch_fence when another writer replaced it. A supervisor restarts the node after at least one lease lifetime; it recovers its previous log before taking a new lease.</desc>
+<defs>
+<marker id="f6a" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink-3, #7b8791)"></path>
+</marker>
+<marker id="f6c" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--cobalt, #2a56a0)"></path>
+</marker>
+</defs>
+<!-- phase headers -->
+<text class="m" font-size="8.5" font-weight="600" text-anchor="middle" x="211" y="26" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">HEALTHY</text>
+<text class="m" font-size="8.5" font-weight="600" text-anchor="middle" x="381" y="26" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">LEASE LAPSES</text>
+<text class="m" font-size="8.5" font-weight="600" text-anchor="middle" x="576" y="26" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">FENCE</text>
+<text class="m" font-size="8.5" font-weight="600" text-anchor="middle" x="779" y="26" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">RESTART</text>
+<!-- lane guides -->
+<path d="M 126 76 L 866 76" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<path d="M 126 188 L 866 188" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<path d="M 126 290 L 866 290" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<text class="m" font-size="11" font-weight="600" text-anchor="end" x="110" y="70" style="fill:var(--ink, #1b252e)">the node</text>
+<text class="f" font-size="12" text-anchor="end" x="110" y="87" style="fill:var(--ink-2, #4a5763)">the leaseholder</text>
+<text class="m" font-size="11" font-weight="600" text-anchor="end" x="110" y="182" style="fill:var(--cobalt, #2a56a0)">the bucket</text>
+<text class="f" font-size="12" text-anchor="end" x="110" y="199" style="fill:var(--ink-2, #4a5763)">the lease record</text>
+<text class="m" font-size="11" font-weight="600" text-anchor="end" x="110" y="284" style="fill:var(--ink, #1b252e)">requests</text>
+<text class="f" font-size="12" text-anchor="end" x="110" y="301" style="fill:var(--ink-2, #4a5763)">every route</text>
+<!-- node lane -->
+<rect height="72" rx="4" stroke-width="1.2" width="150" x="136" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="211" y="64.5" style="fill:var(--ink, #1b252e)">renews its lease</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="79.5" style="fill:var(--ink-2, #4a5763)">every ~3.3 s, a third</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="94.5" style="fill:var(--ink-2, #4a5763)">of CELLD_TTL_MS</text>
+<rect height="72" rx="4" stroke-width="1.2" width="150" x="306" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="381" y="64.5" style="fill:var(--ink, #1b252e)">renewal fails</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="79.5" style="fill:var(--ink-2, #4a5763)">bucket unreachable</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="94.5" style="fill:var(--ink-2, #4a5763)">retries before expiry</text>
+<rect height="80" rx="4" stroke-width="1.5" width="200" x="476" y="36" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="576" y="58.5" style="fill:var(--cobalt, #2a56a0)">fences itself</text>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="72.5" style="fill:var(--ink-2, #4a5763)">stops each active cell</text>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="86.5" style="fill:var(--ink-2, #4a5763)">fails incomplete requests</text>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="100.5" style="fill:var(--ink-2, #4a5763)">logs SELF-FENCE: · exit 3</text>
+<rect height="72" rx="4" stroke-width="1.2" width="166" x="696" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="779" y="58.5" style="fill:var(--ink, #1b252e)">restarts</text>
+<text class="m" font-size="9" text-anchor="middle" x="779" y="72.5" style="fill:var(--ink-2, #4a5763)">supervisor, no attempt cap</text>
+<text class="m" font-size="9" text-anchor="middle" x="779" y="86.5" style="fill:var(--ink-2, #4a5763)">waits ≥ one lease lifetime</text>
+<text class="m" font-size="9" text-anchor="middle" x="779" y="100.5" style="fill:var(--ink-2, #4a5763)">recovers its log first</text>
+<path d="M 290 76 L 302 76" fill="none" marker-end="url(#f6a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 460 76 L 472 76" fill="none" marker-end="url(#f6a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 680 76 L 692 76" fill="none" marker-end="url(#f6a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<!-- bucket lane -->
+<rect height="56" rx="4" stroke-width="1.5" width="150" x="136" y="160" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9" font-weight="600" text-anchor="middle" x="211" y="176.5" style="fill:var(--cobalt, #2a56a0)">lease record</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="191.5" style="fill:var(--ink-2, #4a5763)">expiry published</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="206.5" style="fill:var(--ink-2, #4a5763)">TTL 10,000 ms</text>
+<rect height="56" rx="4" stroke-dasharray="5 3" stroke-width="1.2" width="150" x="306" y="160" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9" font-weight="600" text-anchor="middle" x="381" y="176.5" style="fill:var(--ink, #1b252e)">no renewal lands</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="191.5" style="fill:var(--ink-2, #4a5763)">the published</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="206.5" style="fill:var(--ink-2, #4a5763)">expiry passes</text>
+<path d="M 211 116 L 211 156" fill="none" marker-start="url(#f6a)" marker-end="url(#f6a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<text class="m" font-size="9" x="218" y="140" style="fill:var(--ink-2, #4a5763)">renew</text>
+<rect height="32" rx="3" stroke-width="1.2" width="200" x="476" y="132" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="145" style="fill:var(--ink-2, #4a5763)">the lease expired</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="576" y="158" style="fill:var(--cobalt, #2a56a0)">node_lease_watchdog_fence</text>
+<rect height="32" rx="3" stroke-width="1.2" width="200" x="476" y="170" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="183" style="fill:var(--ink-2, #4a5763)">the record is gone</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="576" y="196" style="fill:var(--cobalt, #2a56a0)">node_lease_record_missing_fence</text>
+<rect height="32" rx="3" stroke-width="1.2" width="200" x="476" y="208" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="576" y="221" style="fill:var(--ink-2, #4a5763)">another writer replaced it</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="576" y="234" style="fill:var(--cobalt, #2a56a0)">node_lease_record_mismatch_fence</text>
+<path d="M 576 130 L 576 120" fill="none" marker-end="url(#f6c)" stroke-width="1.4" style="stroke:var(--cobalt, #2a56a0)"></path>
+<text class="m" font-size="9" x="692" y="160" style="fill:var(--ink-2, #4a5763)">the fence names</text>
+<text class="m" font-size="9" x="692" y="174" style="fill:var(--ink-2, #4a5763)">its cause with</text>
+<text class="m" font-size="9" x="692" y="188" style="fill:var(--ink-2, #4a5763)">exactly one event</text>
+<text class="m" font-size="9" x="692" y="208" style="fill:var(--ink-3, #7b8791)">a mismatch names</text>
+<text class="m" font-size="9" x="692" y="222" style="fill:var(--ink-3, #7b8791)">no author: it cannot</text>
+<text class="m" font-size="9" x="692" y="236" style="fill:var(--ink-3, #7b8791)">prove who wrote it</text>
+<!-- requests lane -->
+<rect height="56" rx="4" stroke-width="1.2" width="150" x="136" y="262" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="211" y="278.5" style="fill:var(--ink, #1b252e)">served</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="293.5" style="fill:var(--ink-2, #4a5763)">the route checks the</text>
+<text class="m" font-size="9" text-anchor="middle" x="211" y="308.5" style="fill:var(--ink-2, #4a5763)">expiry: still ahead</text>
+<rect height="56" rx="4" stroke-width="1.5" width="150" x="306" y="262" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="381" y="278.5" style="fill:var(--cobalt, #2a56a0)">refused</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="293.5" style="fill:var(--ink-2, #4a5763)">expiry has passed</text>
+<text class="m" font-size="9" text-anchor="middle" x="381" y="308.5" style="fill:var(--ink-2, #4a5763)">before the fence runs</text>
+<rect height="56" rx="4" stroke-dasharray="5 3" stroke-width="1.2" width="166" x="696" y="262" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="779" y="278.5" style="fill:var(--ink, #1b252e)">back in the fleet</text>
+<text class="m" font-size="9" text-anchor="middle" x="779" y="293.5" style="fill:var(--ink-2, #4a5763)">only after a restart</text>
+<text class="m" font-size="9" text-anchor="middle" x="779" y="308.5" style="fill:var(--ink-2, #4a5763)">and a new lease</text>
+<path d="M 211 218 L 211 258" fill="none" marker-end="url(#f6a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 381 218 L 381 258" fill="none" marker-end="url(#f6c)" stroke-width="1.4" style="stroke:var(--cobalt, #2a56a0)"></path>
+<path d="M 126 338 L 866 338" fill="none" marker-end="url(#f6a)" stroke-width="1.1" style="stroke:var(--ink-3, #7b8791)"></path>
+<text class="m" font-size="9" x="126" y="332" style="fill:var(--ink-2, #4a5763)">time</text>
+<rect height="54" rx="4" stroke-width="1.2" width="852" x="14" y="352" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="10" text-anchor="middle" x="440" y="374" style="fill:var(--ink, #1b252e)">A node that cannot prove its lease stops serving: first each request, then the whole process.</text>
+<text class="f" font-size="12.5" text-anchor="middle" x="440" y="394" style="fill:var(--ink-2, #4a5763)">The fenced state is terminal; only a supervisor restart, at least one lease lifetime later, brings it back.</text>
+</svg>
+<figcaption>Self-fencing shown as a sequence. Requests are refused the moment the published expiry passes, before the fence itself runs, so a node never serves a cell it can no longer prove it owns. The fence then ends the process with exit code 3 and one of three events that name its cause. Because the fenced state is terminal, run celld under a supervisor with no attempt limit.</figcaption>
+</figure>
+
 
 > [!NOTE] Why read the record, not the clock
 >
@@ -457,40 +558,40 @@ State lives in `.celld/dev` under the project (add `.celld/` to `.gitignore`), s
 </defs>
 <rect height="56" rx="4" stroke-width="1.2" width="180" x="20" y="26" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="110" y="48" style="fill:var(--ink, #1b252e)">Wrangler project</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="110" y="64" style="fill:var(--ink-2, #4a5763)">wrangler.jsonc · src/</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="110" y="75" style="fill:var(--ink-2, #4a5763)">migrations/ · assets/</text>
+<text class="m" font-size="9" text-anchor="middle" x="110" y="64" style="fill:var(--ink-2, #4a5763)">wrangler.jsonc · src/</text>
+<text class="m" font-size="9" text-anchor="middle" x="110" y="75" style="fill:var(--ink-2, #4a5763)">migrations/ · assets/</text>
 <rect height="56" rx="4" stroke-width="1.2" width="180" x="235" y="26" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="325" y="48" style="fill:var(--ink, #1b252e)">esbuild bundle</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="325" y="64" style="fill:var(--ink-2, #4a5763)">only if the project</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="325" y="75" style="fill:var(--ink-2, #4a5763)">has Worker code</text>
+<text class="m" font-size="9" text-anchor="middle" x="325" y="64" style="fill:var(--ink-2, #4a5763)">only if the project</text>
+<text class="m" font-size="9" text-anchor="middle" x="325" y="75" style="fill:var(--ink-2, #4a5763)">has Worker code</text>
 <rect height="56" rx="4" stroke-width="1.2" width="180" x="450" y="26" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="540" y="48" style="fill:var(--ink, #1b252e)">celld deploy</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="540" y="64" style="fill:var(--ink-2, #4a5763)">signed with the</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="540" y="75" style="fill:var(--ink-2, #4a5763)">fleet secret</text>
+<text class="m" font-size="9" text-anchor="middle" x="540" y="64" style="fill:var(--ink-2, #4a5763)">signed with the</text>
+<text class="m" font-size="9" text-anchor="middle" x="540" y="75" style="fill:var(--ink-2, #4a5763)">fleet secret</text>
 <rect height="56" rx="4" stroke-width="1.5" width="180" x="665" y="26" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="755" y="48" style="fill:var(--cobalt, #2a56a0)">fleet bucket</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="755" y="64" style="fill:var(--ink-2, #4a5763)">deploy/current.json</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="755" y="75" style="fill:var(--ink-2, #4a5763)">+ deploy-blobs/</text>
+<text class="m" font-size="9" text-anchor="middle" x="755" y="64" style="fill:var(--ink-2, #4a5763)">deploy/current.json</text>
+<text class="m" font-size="9" text-anchor="middle" x="755" y="75" style="fill:var(--ink-2, #4a5763)">+ deploy-blobs/</text>
 <path d="M 204 54 L 231 54" fill="none" marker-end="url(#f4a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 419 54 L 446 54" fill="none" marker-end="url(#f4a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 634 54 L 661 54" fill="none" marker-end="url(#f4a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 755 84 L 755 126" fill="none" marker-end="url(#f4a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" x="765" y="110" style="fill:var(--ink-2, #4a5763)">polled, not pushed</text>
+<text class="m" font-size="9" x="765" y="110" style="fill:var(--ink-2, #4a5763)">polled, not pushed</text>
 <rect height="182" rx="5" stroke-width="1.5" width="840" x="20" y="130" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="11" font-weight="600" x="40" y="155" style="fill:var(--ink, #1b252e)">EACH FLEET NODE—adoption in place, no restart</text>
-<text class="m" font-size="8.5" x="40" y="173" style="fill:var(--ink-2, #4a5763)">reads deploy/current.json every CELLD_DEPLOY_POLL_S (30 s) · POST /reload on the internal listener adopts immediately</text>
+<text class="m" font-size="9" x="40" y="173" style="fill:var(--ink-2, #4a5763)">reads deploy/current.json every CELLD_DEPLOY_POLL_S (30 s) · POST /reload on the internal listener adopts immediately</text>
 <rect height="76" rx="4" stroke-width="1.2" width="300" x="60" y="190" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="9.5" text-anchor="middle" x="210" y="214" style="fill:var(--ink-2, #4a5763)">deployment N—serving</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="210" y="232" style="fill:var(--ink-2, #4a5763)">a request that already started</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="210" y="245" style="fill:var(--ink-2, #4a5763)">finishes here</text>
+<text class="m" font-size="9" text-anchor="middle" x="210" y="232" style="fill:var(--ink-2, #4a5763)">a request that already started</text>
+<text class="m" font-size="9" text-anchor="middle" x="210" y="245" style="fill:var(--ink-2, #4a5763)">finishes here</text>
 <rect height="76" rx="4" stroke-width="1.4" width="300" x="440" y="190" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="9.5" text-anchor="middle" x="590" y="214" style="fill:var(--cobalt, #2a56a0)">deployment N+1—built beside it</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="590" y="232" style="fill:var(--ink-2, #4a5763)">new requests switch to it</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="590" y="245" style="fill:var(--ink-2, #4a5763)">in one step</text>
+<text class="m" font-size="9" text-anchor="middle" x="590" y="232" style="fill:var(--ink-2, #4a5763)">new requests switch to it</text>
+<text class="m" font-size="9" text-anchor="middle" x="590" y="245" style="fill:var(--ink-2, #4a5763)">in one step</text>
 <path d="M 364 228 L 436 228" fill="none" marker-end="url(#f4a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="400" y="218" style="fill:var(--ink-2, #4a5763)">switch</text>
+<text class="m" font-size="9" text-anchor="middle" x="400" y="218" style="fill:var(--ink-2, #4a5763)">switch</text>
 <text class="m" font-size="9.5" text-anchor="middle" x="440" y="288" style="fill:var(--ink-2, #4a5763)">a Durable Object moves at a safe point—no in-flight request, alarm, pending durability, or regular WebSocket</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="302" style="fill:var(--ink-2, #4a5763)">it keeps its storage, its epoch, and its hibernatable sockets · in the adoption window the two deployments must accept each other's calls</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="302" style="fill:var(--ink-2, #4a5763)">it keeps its storage, its epoch, and its hibernatable sockets · in the adoption window the two deployments must accept each other's calls</text>
 <text class="m" font-size="9.5" text-anchor="middle" x="440" y="334" style="fill:var(--cobalt, #2a56a0)">no safe point within CELLD_DEPLOY_MAX_AGE_S (60 s) → the move is forced, with WebSocket code 1012, matching Cloudflare</text>
 </svg>
 <figcaption>Deployment is a push to the bucket and a pull by every node; no control plane tells nodes to reload. A node adopts the pulled deployment in place, without a restart.</figcaption>
@@ -530,6 +631,101 @@ SIGTERM/SIGINT (what `systemctl stop`, `docker stop`, and a Kubernetes pod delet
 6. releases ownership and asks a compatible peer to acquire, waiting for each acknowledgement before the next batch.
 
 One variable bounds the whole stop. `CELLD_SHUTDOWN_TOTAL_MS` (default 40,000) derives the fleet drain-token wait (3/4 of it, 30 s) and the no-progress bound (5/8, 25 s). `CELLD_RELEASES` sets the number of concurrent handoffs (default 128). A fresh process holds its first healthy response until the fleet is settled (`CELLD_READY_FLEET_GATE_MS`, default 120,000). If the gate expires, the node emits a `ready_gate_expired` event once and **keeps readiness closed** until the condition clears, so give the orchestrator a rollout deadline that fails a persistent capacity problem.
+
+<figure class="topology">
+<svg aria-labelledby="f7-t f7-d" role="img" viewbox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+<title id="f7-t">Graceful shutdown, batch by batch</title>
+<desc id="f7-d">SIGTERM or SIGINT starts a drain: the health endpoint reports unhealthy, new public requests get a 503, and resident cells are handed to peers in batches, up to 128 handoffs at once. For each batch the node reserves cells by local request count, stops new local routes, cancels firing alarms behind a durable wake and cancels active internal fetch and RPC handlers, proves the batch durable in the live ensemble, publishes an L9 snapshot and verifies the restore object, then releases ownership to a compatible peer and waits for each acknowledgement before the next batch. CELLD_SHUTDOWN_TOTAL_MS, 40 seconds by default, bounds the stop and derives a 30 second drain-token wait and a 25 second no-progress bound. An orchestrator grace shorter than these bounds, such as a 30 second one, ends in SIGKILL before the handoff finishes.</desc>
+<defs>
+<marker id="f7a" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink-3, #7b8791)"></path>
+</marker>
+<marker id="f7c" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--cobalt, #2a56a0)"></path>
+</marker>
+</defs>
+<!-- trigger -->
+<rect height="60" rx="4" stroke-width="1.5" width="190" x="24" y="18" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="119" y="37.5" style="fill:var(--cobalt, #2a56a0)">SIGTERM / SIGINT</text>
+<text class="m" font-size="9" text-anchor="middle" x="119" y="51.5" style="fill:var(--ink-2, #4a5763)">systemctl stop · docker stop</text>
+<text class="m" font-size="9" text-anchor="middle" x="119" y="65.5" style="fill:var(--ink-2, #4a5763)">Kubernetes pod delete</text>
+<rect height="60" rx="4" stroke-width="1.2" width="408" x="244" y="18" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="448" y="37.5" style="fill:var(--ink, #1b252e)">the node drains</text>
+<text class="m" font-size="9" text-anchor="middle" x="448" y="51.5" style="fill:var(--ink-2, #4a5763)">/.well-known/celld/health → unhealthy · new public requests → 503</text>
+<text class="m" font-size="9" text-anchor="middle" x="448" y="65.5" style="fill:var(--ink-2, #4a5763)">resident cells hand off to peers, one batch at a time</text>
+<rect height="60" rx="4" stroke-width="1.2" width="194" x="668" y="18" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="765" y="44" style="fill:var(--ink, #1b252e)">CELLD_RELEASES = 128</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="59" style="fill:var(--ink-2, #4a5763)">handoffs in flight at once</text>
+<path d="M 218 48 L 240 48" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 448 80 L 448 96" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<!-- the batch loop -->
+<rect height="200" rx="5" stroke-width="1.2" width="652" x="8" y="98" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9" font-weight="600" x="44" y="113" letter-spacing="1.2" style="fill:var(--ink, #1b252e)">FOR EACH BATCH</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="44" y="120" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="137" y="141.5" style="fill:var(--ink, #1b252e)">1 · reserve a batch</text>
+<text class="m" font-size="9" text-anchor="middle" x="137" y="155.5" style="fill:var(--ink-2, #4a5763)">ordered by local request count</text>
+<text class="m" font-size="9" text-anchor="middle" x="137" y="169.5" style="fill:var(--ink-2, #4a5763)">newest request ID breaks ties</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="250" y="120" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="343" y="141.5" style="fill:var(--ink, #1b252e)">2 · stop new local routes</text>
+<text class="m" font-size="9" text-anchor="middle" x="343" y="155.5" style="fill:var(--ink-2, #4a5763)">no new requests start</text>
+<text class="m" font-size="9" text-anchor="middle" x="343" y="169.5" style="fill:var(--ink-2, #4a5763)">here for these cells</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="456" y="120" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="549" y="141.5" style="fill:var(--ink, #1b252e)">3 · cancel in-flight work</text>
+<text class="m" font-size="9" text-anchor="middle" x="549" y="155.5" style="fill:var(--ink-2, #4a5763)">firing alarms → a durable wake</text>
+<text class="m" font-size="9" text-anchor="middle" x="549" y="169.5" style="fill:var(--ink-2, #4a5763)">active internal fetch / RPC</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="456" y="220" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="549" y="241.5" style="fill:var(--ink, #1b252e)">4 · prove it durable</text>
+<text class="m" font-size="9" text-anchor="middle" x="549" y="255.5" style="fill:var(--ink-2, #4a5763)">the batch, in the</text>
+<text class="m" font-size="9" text-anchor="middle" x="549" y="269.5" style="fill:var(--ink-2, #4a5763)">live ensemble</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="250" y="220" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="343" y="241.5" style="fill:var(--cobalt, #2a56a0)">5 · publish an L9 snapshot</text>
+<text class="m" font-size="9" text-anchor="middle" x="343" y="255.5" style="fill:var(--ink-2, #4a5763)">verify the restore object</text>
+<text class="m" font-size="9" text-anchor="middle" x="343" y="269.5" style="fill:var(--ink-2, #4a5763)">too big (~80 MiB): L0 chain</text>
+<rect height="64" rx="4" stroke-width="1.2" width="186" x="44" y="220" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="137" y="241.5" style="fill:var(--ink, #1b252e)">6 · release, peer acquires</text>
+<text class="m" font-size="9" text-anchor="middle" x="137" y="255.5" style="fill:var(--ink-2, #4a5763)">a compatible peer takes over</text>
+<text class="m" font-size="9" text-anchor="middle" x="137" y="269.5" style="fill:var(--ink-2, #4a5763)">wait for each acknowledgement</text>
+<path d="M 232 152 L 246 152" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 438 152 L 452 152" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 549 186 L 549 216" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 454 252 L 440 252" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 248 252 L 234 252" fill="none" marker-end="url(#f7a)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 42 252 L 26 252 L 26 152 L 40 152" fill="none" marker-end="url(#f7c)" stroke-width="1.4" style="stroke:var(--cobalt, #2a56a0)"></path>
+<text class="m" font-size="8.5" text-anchor="middle" x="18" y="202" transform="rotate(-90 18 202)" style="fill:var(--cobalt, #2a56a0)">next batch</text>
+<rect height="64" rx="4" stroke-dasharray="5 3" stroke-width="1.2" width="184" x="676" y="120" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="768" y="141.5" style="fill:var(--ink, #1b252e)">alarms still fire</text>
+<text class="m" font-size="9" text-anchor="middle" x="768" y="155.5" style="fill:var(--ink-2, #4a5763)">the durable wake runs them</text>
+<text class="m" font-size="9" text-anchor="middle" x="768" y="169.5" style="fill:var(--ink-2, #4a5763)">at least once, on the successor</text>
+<rect height="64" rx="4" stroke-dasharray="5 3" stroke-width="1.2" width="184" x="676" y="220" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="768" y="241.5" style="fill:var(--ink, #1b252e)">nothing moves in</text>
+<text class="m" font-size="9" text-anchor="middle" x="768" y="255.5" style="fill:var(--ink-2, #4a5763)">a draining node receives</text>
+<text class="m" font-size="9" text-anchor="middle" x="768" y="269.5" style="fill:var(--ink-2, #4a5763)">no cells from rebalancing</text>
+<path d="M 644 152 L 672 152" fill="none" stroke-dasharray="3 3" stroke-width="1.2" style="stroke:var(--ink-3, #7b8791)"></path>
+<!-- the bounds rail -->
+<text class="m" font-size="9" x="24" y="360" style="fill:var(--ink, #1b252e)">bounds (defaults)</text>
+<path d="M 150 356 L 645 356" fill="none" marker-end="url(#f7a)" stroke-width="1.3" style="stroke:var(--ink-2, #4a5763)"></path>
+<path d="M 150 350 L 150 362" fill="none" stroke-width="1.3" style="stroke:var(--ink-2, #4a5763)"></path>
+<path d="M 425 350 L 425 362" fill="none" stroke-width="1.3" style="stroke:var(--ink-2, #4a5763)"></path>
+<path d="M 480 350 L 480 362" fill="none" stroke-width="1.3" style="stroke:var(--ink-2, #4a5763)"></path>
+<path d="M 590 350 L 590 362" fill="none" stroke-width="1.3" style="stroke:var(--ink-2, #4a5763)"></path>
+<text class="m" font-size="9" text-anchor="middle" x="150" y="344" style="fill:var(--ink-2, #4a5763)">0 · SIGTERM</text>
+<text class="m" font-size="9" text-anchor="end" x="425" y="344" style="fill:var(--ink-2, #4a5763)">no progress · 25 s (5/8)</text>
+<text class="m" font-size="9" text-anchor="start" x="480" y="344" style="fill:var(--ink-2, #4a5763)">drain-token wait · 30 s (3/4)</text>
+<text class="m" font-size="9" font-weight="600" text-anchor="middle" x="590" y="376" style="fill:var(--ink, #1b252e)">CELLD_SHUTDOWN_TOTAL_MS · 40 s</text>
+<text class="m" font-size="9" x="24" y="396" style="fill:var(--ink-2, #4a5763)">grace long enough</text>
+<path d="M 150 392 L 645 392" fill="none" stroke-width="3" style="stroke:var(--ink-2, #4a5763)"></path>
+<text class="m" font-size="9" x="653" y="396" style="fill:var(--ink-2, #4a5763)">stop grace outlasts every bound</text>
+<text class="m" font-size="9" x="24" y="418" style="fill:var(--cobalt, #2a56a0)">grace too short</text>
+<path d="M 150 414 L 480 414" fill="none" stroke-width="3" style="stroke:var(--cobalt, #2a56a0)"></path>
+<path d="M 475 409 L 485 419 M 485 409 L 475 419" fill="none" stroke-width="2" style="stroke:var(--cobalt, #2a56a0)"></path>
+<text class="m" font-size="9" x="492" y="418" style="fill:var(--cobalt, #2a56a0)">SIGKILL at 30 s (the Kubernetes default): the handoff is cut off</text>
+<rect height="54" rx="4" stroke-width="1.2" width="852" x="14" y="434" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="10" text-anchor="middle" x="440" y="456" style="fill:var(--ink, #1b252e)">Give the orchestrator a stop grace longer than the shutdown bounds, or SIGKILL lands mid-handoff.</text>
+<text class="f" font-size="12.5" text-anchor="middle" x="440" y="476" style="fill:var(--ink-2, #4a5763)">Raise systemd TimeoutStopSec or Kubernetes terminationGracePeriodSeconds past the 40 s default.</text>
+</svg>
+<figcaption>The drain is a loop of six steps per batch, and one variable bounds all of it. The hazard is outside celld: if the orchestrator's stop grace ends first, SIGKILL lands mid-handoff. Kubernetes' default 30 s grace and <code>docker stop</code>'s default 10 s are both shorter than celld's 40 s default bound, so raise the grace rather than trusting the default.</figcaption>
+</figure>
+
 
 > [!WARNING] Warn · orchestrator stop grace
 >
@@ -614,27 +810,27 @@ celld runs the Workers runtime (module Workers, `fetch`, JS RPC, service binding
 <rect height="86" rx="4" stroke-width="1.8" width="672" x="104" y="96" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="12" font-weight="600" text-anchor="middle" x="440" y="124" style="fill:var(--ink, #1b252e)">THE CORE—Workers runtime + Durable Objects</text>
 <text class="f" font-size="13" text-anchor="middle" x="440" y="146" style="fill:var(--ink-2, #4a5763)">a named cell, one thread, its own SQLite</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="440" y="168" style="fill:var(--ink-2, #4a5763)">conformance-tested against workerd on identical bytes—equal output required</text>
+<text class="m" font-size="9" text-anchor="middle" x="440" y="168" style="fill:var(--ink-2, #4a5763)">conformance-tested against workerd on identical bytes—equal output required</text>
 <rect height="52" rx="3" width="144" x="64" y="198" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="136" y="217" style="fill:var(--ink, #1b252e)">D1</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="136" y="231" style="fill:var(--ink-2, #4a5763)">a cell · one writer</text>
-<text class="m" font-size="7.5" text-anchor="middle" x="136" y="243" style="fill:var(--ink-2, #4a5763)">graded Yes</text>
+<text class="m" font-size="9" text-anchor="middle" x="136" y="231" style="fill:var(--ink-2, #4a5763)">a cell · one writer</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="136" y="243" style="fill:var(--ink-2, #4a5763)">graded Yes</text>
 <rect height="52" rx="3" stroke-width="1.3" width="144" x="221" y="198" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="293" y="217" style="fill:var(--ink, #1b252e)">KV</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="293" y="231" style="fill:var(--ink-2, #4a5763)">no edge cache</text>
-<text class="m" font-size="7.5" text-anchor="middle" x="293" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
+<text class="m" font-size="9" text-anchor="middle" x="293" y="231" style="fill:var(--ink-2, #4a5763)">no edge cache</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="293" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
 <rect height="52" rx="3" stroke-width="1.3" width="144" x="378" y="198" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="450" y="217" style="fill:var(--ink, #1b252e)">Queues</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="450" y="231" style="fill:var(--ink-2, #4a5763)">one consumer</text>
-<text class="m" font-size="7.5" text-anchor="middle" x="450" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
+<text class="m" font-size="9" text-anchor="middle" x="450" y="231" style="fill:var(--ink-2, #4a5763)">one consumer</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="450" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
 <rect height="52" rx="3" stroke-width="1.3" width="144" x="535" y="198" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="607" y="217" style="fill:var(--ink, #1b252e)">Workflows</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="607" y="231" style="fill:var(--ink-2, #4a5763)">replay semantics</text>
-<text class="m" font-size="7.5" text-anchor="middle" x="607" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
+<text class="m" font-size="9" text-anchor="middle" x="607" y="231" style="fill:var(--ink-2, #4a5763)">replay semantics</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="607" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
 <rect height="52" rx="3" stroke-width="1.3" width="144" x="692" y="198" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="764" y="217" style="fill:var(--ink, #1b252e)">R2</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="764" y="231" style="fill:var(--ink-2, #4a5763)">your fleet bucket</text>
-<text class="m" font-size="7.5" text-anchor="middle" x="764" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
+<text class="m" font-size="9" text-anchor="middle" x="764" y="231" style="fill:var(--ink-2, #4a5763)">your fleet bucket</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="764" y="243" style="fill:var(--cobalt, #2a56a0)">graded Yes</text>
 <text class="m" font-size="9" x="64" y="270" style="fill:var(--ink-2, #4a5763)">cron triggers · service bindings · Dynamic Workers (worker_loaders) · Durable Object facets · Containers + Sandbox SDK (experimental)</text>
 <text class="m" font-size="9" x="64" y="288" style="fill:var(--ink-2, #4a5763)">everything here is graded Yes on the v0.6.0 page except Containers; the page lists only the remaining differences</text>
 <text class="m" font-size="9.5" x="64" y="326" style="fill:var(--ink-2, #4a5763)">Workers AI (adapter removed) · Vectorize · Hyperdrive · Browser Rendering · Email · Python Workers</text>
@@ -819,6 +1015,79 @@ celld stakes three promises, and its testing is organized around breaking them: 
 - **Exhaustive specification.** The coordination protocol is specified in TLA+ and model-checked at small configuration, with pinned expected verdicts, most of them failures that model bugs the protocol once had, kept as a canary. The model found four bugs and a split-brain that lost an acknowledged write, none of which had surfaced in review or testing. The fencing argument itself is checked, not asserted.
 - **Deterministic simulation.** The coordination logic is a pure decision core with no I/O; a seeded scheduler injects latency, CAS races, lost responses, drifting clocks, and crashes at every await point. Safety and liveness properties must survive tens of thousands of seeds; the core protocols have run through millions of schedules. They also test the checkers: deliberately broken protocol variants must be caught.
 - **Live fleet lab.** Real VMs, a real bucket, fault injection between verification passes (SIGKILL mid-write and delete the local DB; freeze an owner and unfreeze it; cut a node off from the bucket; throttle the bucket to 429s; stop a full host). Every scenario's verification sweep found zero lost acknowledged writes.
+
+<figure class="topology">
+<svg aria-labelledby="f8-t f8-d" role="img" viewbox="0 0 880 460" xmlns="http://www.w3.org/2000/svg">
+<title id="f8-t">Four test layers, from model to fleet</title>
+<desc id="f8-d">Four rows, ordered from abstract to concrete. The TLA+ specification model-checks the coordination protocol at small scale with pinned verdicts and found four bugs and a split-brain that lost an acknowledged write. Deterministic simulation drives a pure decision core with a seeded scheduler that injects latency, CAS races, lost responses, drifting clocks, and crashes at every await, across tens of thousands of seeds per property and millions of schedules. Differential conformance runs each program on workerd and on celld with identical bytes and requires equal outputs. The live fleet lab injects faults on real VMs and a real bucket, and every verification sweep found zero lost acknowledged writes.</desc>
+<defs>
+<marker id="f8a" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink-3, #7b8791)"></path>
+</marker>
+<marker id="f8c" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--cobalt, #2a56a0)"></path>
+</marker>
+</defs>
+<text class="m" font-size="8.5" font-weight="600" x="60" y="40" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">LAYER</text>
+<text class="m" font-size="8.5" font-weight="600" x="276" y="40" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">WHAT IT DOES</text>
+<text class="m" font-size="8.5" font-weight="600" x="668" y="40" letter-spacing="1.2" style="fill:var(--ink-3, #7b8791)">EVIDENCE</text>
+<path d="M 30 60 L 30 368" fill="none" marker-end="url(#f8a)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
+<text class="m" font-size="8.5" text-anchor="middle" x="30" y="52" style="fill:var(--ink-3, #7b8791)">abstract</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="30" y="384" style="fill:var(--ink-3, #7b8791)">concrete</text>
+<rect height="68" rx="4" stroke-width="1.2" width="196" x="60" y="56" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10.5" font-weight="600" text-anchor="middle" x="158" y="78.5" style="fill:var(--ink, #1b252e)">TLA+ specification</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="93.5" style="fill:var(--ink-2, #4a5763)">the protocol, as a model</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="108.5" style="fill:var(--ink-2, #4a5763)">checked at small scale</text>
+<text class="f" font-size="12" x="276" y="78" style="fill:var(--ink, #1b252e)">The fencing argument is checked, not asserted</text>
+<text class="m" font-size="9" x="276" y="98" style="fill:var(--ink-2, #4a5763)">pinned expected verdicts; most are failures that model</text>
+<text class="m" font-size="9" x="276" y="113" style="fill:var(--ink-2, #4a5763)">bugs the protocol once had, kept as a canary</text>
+<rect height="68" rx="4" stroke-width="1.4" width="194" x="668" y="56" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="765" y="79.5" style="fill:var(--cobalt, #2a56a0)">4 bugs + a split-brain</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="93.5" style="fill:var(--ink-2, #4a5763)">the split-brain lost an</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="107.5" style="fill:var(--ink-2, #4a5763)">acknowledged write</text>
+<path d="M 60 130 L 862 130" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<rect height="68" rx="4" stroke-width="1.2" width="196" x="60" y="136" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10.5" font-weight="600" text-anchor="middle" x="158" y="158.5" style="fill:var(--ink, #1b252e)">Deterministic simulation</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="173.5" style="fill:var(--ink-2, #4a5763)">a pure decision core</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="188.5" style="fill:var(--ink-2, #4a5763)">with no I/O</text>
+<text class="f" font-size="12" x="276" y="158" style="fill:var(--ink, #1b252e)">A seeded scheduler injects a fault at every await</text>
+<text class="m" font-size="9" x="276" y="178" style="fill:var(--ink-2, #4a5763)">latency · CAS races · lost responses · drifting clocks · crashes</text>
+<text class="m" font-size="9" x="276" y="193" style="fill:var(--ink-2, #4a5763)">safety and liveness must hold for every seed</text>
+<rect height="68" rx="4" stroke-width="1.4" width="194" x="668" y="136" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="765" y="159.5" style="fill:var(--cobalt, #2a56a0)">millions of schedules</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="173.5" style="fill:var(--ink-2, #4a5763)">tens of thousands of</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="187.5" style="fill:var(--ink-2, #4a5763)">seeds per property</text>
+<path d="M 60 210 L 862 210" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<rect height="68" rx="4" stroke-width="1.2" width="196" x="60" y="216" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10.5" font-weight="600" text-anchor="middle" x="158" y="238.5" style="fill:var(--ink, #1b252e)">Differential conformance</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="253.5" style="fill:var(--ink-2, #4a5763)">workerd vs celld</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="268.5" style="fill:var(--ink-2, #4a5763)">on identical bytes</text>
+<text class="f" font-size="12" x="276" y="238" style="fill:var(--ink, #1b252e)">Each program runs twice, and the outputs must match</text>
+<text class="m" font-size="9" x="276" y="258" style="fill:var(--ink-2, #4a5763)">once on workerd (Cloudflare's runtime), once on celld</text>
+<text class="m" font-size="9" x="276" y="273" style="fill:var(--ink-2, #4a5763)">a test cannot agree with celld's own runtime by accident</text>
+<rect height="68" rx="4" stroke-width="1.4" width="194" x="668" y="216" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="765" y="239.5" style="fill:var(--cobalt, #2a56a0)">equal outputs</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="253.5" style="fill:var(--ink-2, #4a5763)">the two runs must agree</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="267.5" style="fill:var(--ink-2, #4a5763)">on every program</text>
+<path d="M 60 290 L 862 290" fill="none" stroke-dasharray="2 4" stroke-width="1" style="stroke:var(--rule, #d3d9d4)"></path>
+<rect height="68" rx="4" stroke-width="1.2" width="196" x="60" y="296" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10.5" font-weight="600" text-anchor="middle" x="158" y="318.5" style="fill:var(--ink, #1b252e)">Live fleet lab</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="333.5" style="fill:var(--ink-2, #4a5763)">real VMs</text>
+<text class="m" font-size="9" text-anchor="middle" x="158" y="348.5" style="fill:var(--ink-2, #4a5763)">and a real bucket</text>
+<text class="f" font-size="12" x="276" y="318" style="fill:var(--ink, #1b252e)">Faults are injected between verification passes</text>
+<text class="m" font-size="9" x="276" y="338" style="fill:var(--ink-2, #4a5763)">SIGKILL mid-write + delete the local DB · freeze an owner</text>
+<text class="m" font-size="9" x="276" y="353" style="fill:var(--ink-2, #4a5763)">cut a node off the bucket · throttle to 429s · stop a host</text>
+<rect height="68" rx="4" stroke-width="1.4" width="194" x="668" y="296" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" font-weight="600" text-anchor="middle" x="765" y="319.5" style="fill:var(--cobalt, #2a56a0)">0 lost acknowledged writes</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="333.5" style="fill:var(--ink-2, #4a5763)">in every scenario's</text>
+<text class="m" font-size="9" text-anchor="middle" x="765" y="347.5" style="fill:var(--ink-2, #4a5763)">verification sweep</text>
+<rect height="54" rx="4" stroke-width="1.2" width="852" x="14" y="394" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="10" text-anchor="middle" x="440" y="416" style="fill:var(--ink, #1b252e)">celld stakes three promises: an acknowledged write is durable · one writer per cell · Cloudflare code behaves the same</text>
+<text class="f" font-size="12.5" text-anchor="middle" x="440" y="436" style="fill:var(--ink-2, #4a5763)">The checkers are tested too: a deliberately broken protocol variant must be caught by the simulation.</text>
+</svg>
+<figcaption>celld's four test layers, ordered from the protocol as a model to the running fleet. The evidence column is what each layer reported, not a coverage claim, and the simulation's own checkers are tested against deliberately broken protocol variants.</figcaption>
+</figure>
+
 
 ### Numbers with their conditions
 
