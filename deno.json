@@ -11,8 +11,25 @@
     "@std/assert": "jsr:@std/assert@1",
     "@std/jsonc": "jsr:@std/jsonc@1",
     "@std/yaml": "jsr:@std/yaml@1",
-    "linkedom": "npm:linkedom@0.18.12"
+    "linkedom": "npm:linkedom@0.18.12",
+    "fflate": "npm:fflate@0.8.2"
   },
-  "fmt": { "lineWidth": 120, "exclude": ["vendor/", "dist/", "out/", "content/", "labs/"] },
-  "lint": { "exclude": ["vendor/", "dist/", "out/", "labs/"] }
+  "fmt": {
+    "lineWidth": 120,
+    "exclude": [
+      "vendor/",
+      "dist/",
+      "out/",
+      "content/",
+      "labs/"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      "vendor/",
+      "dist/",
+      "out/",
+      "labs/"
+    ]
+  }
 }

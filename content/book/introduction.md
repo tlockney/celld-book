@@ -22,7 +22,7 @@ It is written for engineers who build stateful services and want to understand a
 
 Read Part I if Durable Objects are new to you; otherwise start at Part II. Part III can be read on its own, but it points back to Part II wherever the reasoning lives there. The labs are meant to sit beside Chapter 9: Lab 1 with Steps 02–04, Lab 2 with Steps 05 and 07, and Lab 3 with Step 06.
 
-The labs are evidence, not illustrations. Every output in them came from a live node, and each lab is a frozen export of a run against celld v0.6.0 on 2026·09·26. Each ends with an exercise: TODO stubs and a checker cell. The checkers in the export print ✗ by design, because they are waiting for your solution.
+The labs are evidence, not illustrations. Every output in them came from a live node, and each lab is a frozen export of a run against celld v0.6.0 on 2026·09·26. Each ends with an exercise: TODO stubs and a checker cell. The checkers in the export print ✗ by design, because they are waiting for your solution. To run a lab yourself, download it from the top of its chapter together with the helper `celld_nb.ts` it imports, or get [all three labs and the helper as one zip](labs/celld-labs.zip), and open it in JupyterLab with a Deno kernel.
 
 A few conventions run throughout:
 

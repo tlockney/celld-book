@@ -29,6 +29,7 @@ export interface BookConfig {
   subtitle: string;
   edition: string;
   curator: string;
+  siteUrl: string;
   dek: string;
   sources: Record<DocKey, string> & { labs: string[] };
   parts: Record<string, string>;
@@ -121,6 +122,7 @@ export function parseBookConfig(text: string): BookConfig {
     subtitle: str(raw, "subtitle", "book"),
     edition: str(raw, "edition", "book"),
     curator: str(raw, "curator", "book"),
+    siteUrl: str(raw, "siteUrl", "book").replace(/\/?$/, "/"),
     dek: str(raw, "dek", "book"),
     sources: {
       part0: str(src, "part0", "sources"),
