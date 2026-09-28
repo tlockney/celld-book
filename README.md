@@ -28,6 +28,13 @@ This repository is the **single source** for two outputs:
 | `tools/` | Checks: `audit.py` (leftover series phrasing), `phone.ts` (true 390px phone emulation), `shots.sh`. |
 | `docs/specs/` | The design. |
 
+## Publishing
+
+`.github/workflows/pages.yml` publishes the book to GitHub Pages at <https://tlockney.github.io/celld-book/>:
+pull requests run the tests and the build (a broken internal link fails it); pushes to `main` also deploy `dist/`.
+Pages must be set to deploy from GitHub Actions (Settings → Pages → Source → GitHub Actions). Every URL in the site
+is relative, so the project subpath needs no configuration, and the service worker is scoped to it.
+
 ## One source, two outputs
 
 Most text is shared. Where the book and the series must differ, the source marks the span:
