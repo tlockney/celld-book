@@ -6,8 +6,10 @@
  * skill/editorial-longform-html/assets/engineering-reference.html, EDITORIAL-HEAD/BODY "edzoom"),
  * with four changes: bench-sheet color tokens instead of the editorial palette (so it follows the
  * light and dark themes); the zoomed copy keeps the diagram's grid ground and fonts; links, buttons,
- * and glossary terms inside a figure keep working instead of opening the zoom; and figures are
- * keyboard-operable (focusable, Enter/Space opens, focus returns on close).
+ * and glossary terms inside a figure keep working instead of opening the zoom; and every figure gets
+ * a corner zoom button (⤢), faint at rest and full on hover or focus, which is both the desktop
+ * affordance and the keyboard path (focus returns to it on close). Touch screens get a "Tap to
+ * zoom" label above the drawing instead.
  *
  * The class names and the `window.__edzoom` guard are kept, so a page served inside the Reading
  * Room (which injects its own copy) runs only one zoom.
@@ -16,18 +18,22 @@
 export const ZOOM_CSS = `
 /* ── figure zoom (ported from the Reading Room editorial bundle) ─────────── */
 .edzoom-able { cursor: zoom-in; position: relative; }
-.edzoom-able:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
-.edzoom-able::after {
-  content: "Click to zoom";
+/* The corner button is always faintly present, so desktop readers can see a figure is interactive. */
+.edzoom-btn {
   position: absolute; top: 8px; right: 8px; z-index: 2;
+  display: inline-flex; align-items: center;
   font: 600 9px/1 var(--f-mono); letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--cobalt); background: var(--paper-2); border: 1px solid var(--rule);
-  padding: 4px 7px; border-radius: 2px; opacity: 0; transition: opacity .15s; pointer-events: none;
+  color: var(--cobalt); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 2px;
+  padding: 4px 7px; cursor: pointer; opacity: 0.6; transition: opacity .15s, border-color .15s;
 }
-.edzoom-able:hover::after, .edzoom-able:focus-visible::after { opacity: 1; }
-/* Touch screens have no hover, so the hint must always show; set it above the drawing, not over it. */
+.edzoom-btn .edzoom-ico { font-size: 13px; letter-spacing: 0; line-height: 0.8; }
+.edzoom-btn .edzoom-lbl { max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width .15s, margin .15s; }
+.edzoom-able:hover .edzoom-btn, .edzoom-btn:focus-visible { opacity: 1; border-color: var(--cobalt); }
+.edzoom-able:hover .edzoom-lbl, .edzoom-btn:focus-visible .edzoom-lbl { max-width: 6em; margin-left: 6px; }
+.edzoom-btn:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+/* Touch screens have no hover: hide the button and set a label above the drawing, not over it. */
 @media (hover: none) {
-  .edzoom-able::after { display: none; }
+  .edzoom-btn { display: none; }
   .edzoom-able::before {
     content: "Tap to zoom"; display: block; width: max-content; margin: 0 0 6px auto;
     font: 600 9px/1 var(--f-mono); letter-spacing: 0.16em; text-transform: uppercase;
@@ -80,7 +86,7 @@ export const ZOOM_CSS = `
   color: var(--ink-2); padding: 10px 14px; border-left: 1px solid var(--rule); min-width: 64px; text-align: center; align-self: center;
 }
 :root.edzoom-open .bookbar { visibility: hidden; }
-@media print { .edzoom-overlay, .edzoom-controls, .edzoom-able::after { display: none !important; } }
+@media print { .edzoom-overlay, .edzoom-controls, .edzoom-btn, .edzoom-able::before { display: none !important; } }
 `;
 
 export const ZOOM_JS = `
@@ -160,20 +166,17 @@ export const ZOOM_JS = `
       if(el.classList.contains('edzoom-marked'))return;
       if(!visIn(el))return;
       el.classList.add('edzoom-marked','edzoom-able');
-      if(!el.hasAttribute('tabindex'))el.setAttribute('tabindex','0');
-      el.setAttribute('aria-roledescription','zoomable figure');
-      if(!el.hasAttribute('title'))el.setAttribute('title','Open this figure full screen to zoom');
+      /* A real button is the keyboard and screen-reader path; hostOf skips buttons, so it opens the zoom itself. */
+      var b=document.createElement('button');b.type='button';b.className='edzoom-btn';
+      b.setAttribute('aria-label','Zoom figure');b.title='Open this figure full screen to zoom';
+      b.innerHTML='<span class="edzoom-ico" aria-hidden="true">&#10530;</span><span class="edzoom-lbl" aria-hidden="true">Zoom</span>';
+      b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var v=visIn(el);if(v)open(v,b);});
+      el.appendChild(b);
     });
   }
   function init(){
     build();mark();
     document.addEventListener('click',function(e){var h=hostOf(e.target);if(h){e.preventDefault();open(visIn(h),h);}});
-    document.addEventListener('keydown',function(e){
-      if(overlay.classList.contains('open'))return;
-      if(e.key!=='Enter'&&e.key!==' ')return;
-      var h=e.target&&e.target.classList&&e.target.classList.contains('edzoom-able')?e.target:null;
-      if(h&&visIn(h)){e.preventDefault();open(visIn(h),h);}
-    });
     try{new MutationObserver(mark).observe(document.body,{childList:true,subtree:true});}catch(_){}
   }
   if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);

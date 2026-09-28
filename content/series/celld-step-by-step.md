@@ -157,16 +157,16 @@ Two names, two cells, two independent SQLite databases. That is the model workin
 </defs>
 <rect height="60" rx="4" stroke-width="1.2" width="180" x="24" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="114" y="66" style="fill:var(--ink, #1b252e)">edit src/ or config</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="114" y="84" style="fill:var(--ink-2, #4a5763)">watcher sees the change</text>
+<text class="m" font-size="9" text-anchor="middle" x="114" y="84" style="fill:var(--ink-2, #4a5763)">watcher sees the change</text>
 <rect height="60" rx="4" stroke-width="1.2" width="180" x="254" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="344" y="66" style="fill:var(--ink, #1b252e)">build new deployment</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="344" y="84" style="fill:var(--ink-2, #4a5763)">beside the running one</text>
+<text class="m" font-size="9" text-anchor="middle" x="344" y="84" style="fill:var(--ink-2, #4a5763)">beside the running one</text>
 <rect height="60" rx="4" stroke-width="1.4" width="180" x="484" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="574" y="66" style="fill:var(--cobalt, #2a56a0)">adopt in place</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="574" y="84" style="fill:var(--ink-2, #4a5763)">new requests switch over</text>
+<text class="m" font-size="9" text-anchor="middle" x="574" y="84" style="fill:var(--ink-2, #4a5763)">new requests switch over</text>
 <rect height="60" rx="4" stroke-dasharray="5 3" stroke-width="1.1" width="152" x="704" y="40" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
 <text class="m" font-size="9.5" text-anchor="middle" x="780" y="66" style="fill:var(--ink-2, #4a5763)">failed build?</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="780" y="84" style="fill:var(--ink-2, #4a5763)">current app keeps serving</text>
+<text class="m" font-size="9" text-anchor="middle" x="780" y="84" style="fill:var(--ink-2, #4a5763)">current app keeps serving</text>
 <path d="M 208 70 L 250 70" fill="none" marker-end="url(#fdeva)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 438 70 L 480 70" fill="none" marker-end="url(#fdeva)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
 <rect height="44" rx="4" stroke-width="1.3" width="410" x="254" y="140" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
@@ -398,7 +398,7 @@ The one rule that decides whether your workflow is correct is the replay rule. A
 <path d="M 480 127 L 496 127" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 290 49 L 306 49" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 480 49 L 496 49" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8.5" text-anchor="middle" x="205" y="164" style="fill:var(--cobalt, #2a56a0)">code BETWEEN steps runs again too</text>
+<text class="m" font-size="9" text-anchor="middle" x="205" y="164" style="fill:var(--cobalt, #2a56a0)">code BETWEEN steps runs again too</text>
 <rect height="52" rx="4" stroke-width="1.2" width="840" x="20" y="190" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="10" text-anchor="middle" x="440" y="211" style="fill:var(--ink, #1b252e)">Everything meaningful goes inside a step, and every step must be idempotent.</text>
 <text class="f" font-size="12.5" text-anchor="middle" x="440" y="230" style="fill:var(--ink-2, #4a5763)">A crash after a step's side effect but before its result is stored runs that callback again.</text>

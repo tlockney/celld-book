@@ -104,32 +104,32 @@ celld's replication library, `crates/ltx`, is a Rust port of this lineage. Its R
 </defs>
 <rect height="84" rx="4" stroke-width="1.2" width="170" x="16" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="11" font-weight="600" text-anchor="middle" x="101" y="64" style="fill:var(--ink, #1b252e)">the cell's SQLite</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="101" y="82" style="fill:var(--ink-2, #4a5763)">db.sqlite + -wal</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="101" y="97" style="fill:var(--ink-2, #4a5763)">commit frame: size ≠ 0</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="101" y="112" style="fill:var(--ink-2, #4a5763)">crate owns checkpoints</text>
+<text class="m" font-size="9" text-anchor="middle" x="101" y="82" style="fill:var(--ink-2, #4a5763)">db.sqlite + -wal</text>
+<text class="m" font-size="9" text-anchor="middle" x="101" y="97" style="fill:var(--ink-2, #4a5763)">commit frame: size ≠ 0</text>
+<text class="m" font-size="9" text-anchor="middle" x="101" y="112" style="fill:var(--ink-2, #4a5763)">crate owns checkpoints</text>
 <path d="M 188 82 L 246 82" fill="none" marker-end="url(#fwl-a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
-<text class="m" font-size="8" text-anchor="middle" x="217" y="74" style="fill:var(--ink-2, #4a5763)">sync()</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="217" y="74" style="fill:var(--ink-2, #4a5763)">sync()</text>
 <rect height="84" rx="4" stroke-width="1.5" width="170" x="250" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
 <text class="m" font-size="11" font-weight="600" text-anchor="middle" x="335" y="64" style="fill:var(--cobalt, #2a56a0)">one L0 LTX file</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="335" y="82" style="fill:var(--ink-2, #4a5763)">TXID n, changed pages</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="335" y="97" style="fill:var(--ink-2, #4a5763)">on demand, output gate</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="335" y="112" style="fill:var(--ink-2, #4a5763)">(25 ms tick or wake-up)</text>
+<text class="m" font-size="9" text-anchor="middle" x="335" y="82" style="fill:var(--ink-2, #4a5763)">TXID n, changed pages</text>
+<text class="m" font-size="9" text-anchor="middle" x="335" y="97" style="fill:var(--ink-2, #4a5763)">on demand, output gate</text>
+<text class="m" font-size="9" text-anchor="middle" x="335" y="112" style="fill:var(--ink-2, #4a5763)">(25 ms tick or wake-up)</text>
 <path d="M 422 70 L 520 46" fill="none" marker-end="url(#fwl-c)" stroke-width="1.5" style="stroke:var(--cobalt, #2a56a0)"></path>
 <path d="M 422 100 L 520 132" fill="none" marker-end="url(#fwl-a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
 <rect height="52" rx="4" stroke-width="1.2" width="340" x="524" y="16" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="694" y="36" style="fill:var(--ink, #1b252e)">fleet: node log → 1–2 followers</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="694" y="54" style="fill:var(--ink-2, #4a5763)">ack on every follower's fsync · bucket copy later, in bundles</text>
+<text class="m" font-size="9" text-anchor="middle" x="694" y="54" style="fill:var(--ink-2, #4a5763)">ack on every follower's fsync · bucket copy later, in bundles</text>
 <rect height="52" rx="4" stroke-width="1.2" width="340" x="524" y="108" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" text-anchor="middle" x="694" y="128" style="fill:var(--ink, #1b252e)">bucket: upload the L0 file</text>
-<text class="m" font-size="8.5" text-anchor="middle" x="694" y="146" style="fill:var(--ink-2, #4a5763)">ack on the upload, then re-read the ownership record</text>
+<text class="m" font-size="9" text-anchor="middle" x="694" y="146" style="fill:var(--ink-2, #4a5763)">ack on the upload, then re-read the ownership record</text>
 <rect height="84" rx="4" stroke-width="1.2" width="848" x="16" y="190" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
 <text class="m" font-size="10" font-weight="600" x="30" y="210" style="fill:var(--ink, #1b252e)">the fleet bucket · cells/&lt;cell&gt;/ltx/e&lt;epoch&gt;/</text>
-<text class="m" font-size="8.5" x="30" y="232" style="fill:var(--ink-2, #4a5763)">0000/  L0 captures, one per sync</text>
-<text class="m" font-size="8.5" x="30" y="248" style="fill:var(--ink-2, #4a5763)">0001/  L1: additive compactions, sources kept</text>
-<text class="m" font-size="8.5" x="30" y="264" style="fill:var(--ink-2, #4a5763)">0009/  handoff snapshot, checksummed</text>
-<text class="m" font-size="8.5" x="450" y="232" style="fill:var(--ink-2, #4a5763)">restore, full: snapshot + contiguous chain, newest page wins</text>
-<text class="m" font-size="8.5" x="450" y="248" style="fill:var(--ink-2, #4a5763)">restore, paged: page map from the files' indexes;</text>
-<text class="m" font-size="8.5" x="450" y="264" style="fill:var(--cobalt, #2a56a0)">a VFS faults each page in with a ranged read</text>
+<text class="m" font-size="9" x="30" y="232" style="fill:var(--ink-2, #4a5763)">0000/  L0 captures, one per sync</text>
+<text class="m" font-size="9" x="30" y="248" style="fill:var(--ink-2, #4a5763)">0001/  L1: additive compactions, sources kept</text>
+<text class="m" font-size="9" x="30" y="264" style="fill:var(--ink-2, #4a5763)">0009/  handoff snapshot, checksummed</text>
+<text class="m" font-size="9" x="450" y="232" style="fill:var(--ink-2, #4a5763)">restore, full: snapshot + contiguous chain, newest page wins</text>
+<text class="m" font-size="9" x="450" y="248" style="fill:var(--ink-2, #4a5763)">restore, paged: page map from the files' indexes;</text>
+<text class="m" font-size="9" x="450" y="264" style="fill:var(--cobalt, #2a56a0)">a VFS faults each page in with a ranged read</text>
 <path d="M 694 70 L 694 104" fill="none" marker-end="url(#fwl-a)" stroke-dasharray="4 3" stroke-width="1.2" style="stroke:var(--ink-3, #7b8791)"></path>
 <path d="M 694 162 L 694 186" fill="none" marker-end="url(#fwl-a)" stroke-width="1.5" style="stroke:var(--ink-3, #7b8791)"></path>
 </svg>

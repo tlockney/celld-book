@@ -1,6 +1,7 @@
 /**
  * Figure-zoom check in headless Chrome: marking, open on click, zoom controls, Escape and focus
- * return, keyboard open, caption links left alone; saves overlay screenshots in both themes.
+ * return, the corner zoom button (faint at rest, full on hover, opens the zoom, takes focus back),
+ * caption links left alone; saves overlay screenshots in both themes.
  *
  *   deno run -A tools/zoom_check.ts [SHOTDIR]
  */
@@ -20,10 +21,14 @@ const wait = (ms = 120) => `await new Promise((r) => setTimeout(r, ${ms}));`;
 
 await s.go("bucket.html");
 const marked = await s.evaluate(
-  `JSON.stringify({ figures: document.querySelectorAll(".r-fig figure").length, marked: document.querySelectorAll("figure.edzoom-able[tabindex='0']").length })`,
+  `JSON.stringify({ figures: document.querySelectorAll(".r-fig figure").length, marked: document.querySelectorAll("figure.edzoom-able > button.edzoom-btn[aria-label='Zoom figure']").length })`,
 );
 const m = JSON.parse(String(marked)) as { figures: number; marked: number };
-check("every figure is marked zoomable and focusable", m.figures > 0 && m.figures === m.marked, JSON.stringify(m));
+check(
+  "every figure is marked zoomable and has a zoom button",
+  m.figures > 0 && m.figures === m.marked,
+  JSON.stringify(m),
+);
 
 const flow = await s.evaluate(`(async () => {
   const r = {};
@@ -40,13 +45,15 @@ const flow = await s.evaluate(`(async () => {
   document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
   ${wait()}
   r.escapeCloses = !ov().classList.contains("open");
-  r.focusReturns = document.activeElement === fig;
-  fig.focus();
-  fig.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+  const btn = fig.querySelector(".edzoom-btn");
+  btn.focus();
+  btn.click();
   ${wait()}
-  r.enterOpens = ov().classList.contains("open");
+  r.buttonOpens = ov().classList.contains("open");
   document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
   ${wait()}
+  r.focusReturns = document.activeElement === btn;
+  btn.blur();
   return JSON.stringify(r);
 })()`);
 const f = JSON.parse(String(flow)) as Record<string, unknown>;
@@ -57,8 +64,30 @@ check(
   `${f.pctStart} → ${f.pctAfterPlus}`,
 );
 check("page scroll is locked while open", f.pageScrollLocked === true);
-check("Escape closes and returns focus to the figure", f.escapeCloses === true && f.focusReturns === true);
-check("Enter on a focused figure opens it", f.enterOpens === true);
+check("Escape closes the zoom", f.escapeCloses === true);
+check("the zoom button opens the zoom and gets focus back on close", f.buttonOpens === true && f.focusReturns === true);
+
+// Check 8: the button is visible (faintly) at rest and fully on a real pointer hover.
+const opacity = async () =>
+  Number(await s.evaluate(`getComputedStyle(document.querySelector("figure.edzoom-able .edzoom-btn")).opacity`));
+await s.evaluate(`document.querySelector("figure.edzoom-able").scrollIntoView({ block: "center" })`);
+await new Promise((r) => setTimeout(r, 250));
+const rest = await opacity();
+const box = JSON.parse(String(
+  await s.evaluate(`(() => {
+  const r = document.querySelector("figure.edzoom-able svg").getBoundingClientRect();
+  return JSON.stringify({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+})()`),
+)) as { x: number; y: number };
+await s.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: box.x, y: box.y });
+await new Promise((r) => setTimeout(r, 300));
+const hover = await opacity();
+check(
+  "zoom button is visible at rest and full on hover",
+  rest > 0.3 && rest < 1 && hover === 1,
+  `rest ${rest}, hover ${hover}`,
+);
+await s.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 2, y: 2 });
 
 await s.go("building.html");
 const link = await s.evaluate(`(async () => {
