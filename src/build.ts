@@ -22,7 +22,7 @@ import {
 } from "./markdown.ts";
 import { type DocKind, type Resolver, rewrite, type Target } from "./xref.ts";
 import { markTerms, parseGlossary, type Term } from "./glossary.ts";
-import { BOOK_CSS, BOOK_JS, entryName, pager, type TocEntry, tocList, tocParts, topBar } from "./shell.ts";
+import { BOOK_CSS, BOOK_JS, bottomNav, entryName, pager, type TocEntry, tocList, tocParts, topBar } from "./shell.ts";
 import { esc, readAssets, wrapPage } from "../vendor/bench-sheet/bench.ts";
 import { renderArticle } from "../vendor/bench-sheet/render-article.ts";
 import { isNotebook, type Notebook, renderNotebook, toNotebookMeta } from "../vendor/bench-sheet/render-notebook.ts";
@@ -476,7 +476,7 @@ export function postprocess(html: string, page: PlannedPage, pc: PostContext): s
   const footer = sourcesFooter(page, pc);
   if (main && footer) main.insertAdjacentHTML("beforeend", footer);
 
-  // Shell: top bar + drawer, pager.
+  // Shell: top bar + drawer, pager, phone bottom bar.
   const i = pc.toc.findIndex((e) => e.slug === page.cfg.slug);
   const here = pc.toc[i];
   const parts = tocParts(pc.toc, pc.inp.book.parts);
@@ -485,6 +485,11 @@ export function postprocess(html: string, page: PlannedPage, pc: PostContext): s
   const pg = pager(pc.toc[i - 1], pc.toc[i + 1]);
   if (colophon) colophon.insertAdjacentHTML("beforebegin", pg);
   else doc.body.insertAdjacentHTML("beforeend", pg);
+  // The bottom bar goes before the page script, which wires it up as it runs.
+  const nav = bottomNav(pc.toc[i - 1], pc.toc[i + 1]);
+  const script = doc.querySelector("body > script");
+  if (script) script.insertAdjacentHTML("beforebegin", nav);
+  else doc.body.insertAdjacentHTML("beforeend", nav);
 
   return "<!doctype html>\n" +
     (document as unknown as { documentElement: { outerHTML: string } }).documentElement.outerHTML;

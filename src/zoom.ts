@@ -85,7 +85,7 @@ export const ZOOM_CSS = `
 .edzoom-controls .edzoom-pct {
   color: var(--ink-2); padding: 10px 14px; border-left: 1px solid var(--rule); min-width: 64px; text-align: center; align-self: center;
 }
-:root.edzoom-open .bookbar { visibility: hidden; }
+:root.edzoom-open .bookbar, :root.edzoom-open .booknav { visibility: hidden; }
 @media print { .edzoom-overlay, .edzoom-controls, .edzoom-btn, .edzoom-able::before { display: none !important; } }
 `;
 
