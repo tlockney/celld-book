@@ -7,7 +7,7 @@
 # is how the sources were used; no finer per-chapter mapping is claimed.
 # Dates are publication dates where the page states one. Accessed 2026-09-26/27.
 
-accessed: "2026-09-27"
+accessed: "2026-09-28"
 
 groups:
   - id: celld-docs
@@ -17,12 +17,12 @@ groups:
         title: "celld documentation (main guide)"
         publisher: "denoland/celld, docs/README.md at v0.6.0"
         url: "https://github.com/denoland/celld/blob/v0.6.0/docs/README.md"
-        used_in: [part2, ch9, labs]
+        used_in: [part2, ch9, labs, appD]
       - id: celld-guarantees
         title: "What celld guarantees"
         publisher: "denoland/celld, docs/guarantees.md at v0.6.0"
         url: "https://github.com/denoland/celld/blob/v0.6.0/docs/guarantees.md"
-        used_in: [part2, ch9]
+        used_in: [part2, ch9, appD]
       - id: celld-compat
         title: "Cloudflare compatibility"
         publisher: "denoland/celld, docs/cloudflare-compat.md at v0.6.0"
@@ -63,6 +63,16 @@ groups:
         publisher: "denoland/celld, examples/ at v0.6.0"
         url: "https://github.com/denoland/celld/tree/v0.6.0/examples"
         used_in: [ch9, labs]
+      - id: celld-ltx-crate
+        title: "celld-ltx: README, source, and reference/ltx-format.md"
+        publisher: "denoland/celld, crates/ltx at v0.6.0"
+        url: "https://github.com/denoland/celld/tree/v0.6.0/crates/ltx"
+        used_in: [appD]
+      - id: celld-node-log
+        title: "The replicated node log and its CLT1/CLT2 tail formats (crates/celld/node_log.rs, ltx_repl.rs)"
+        publisher: "denoland/celld, crates/celld at v0.6.0"
+        url: "https://github.com/denoland/celld/tree/v0.6.0/crates/celld"
+        used_in: [appD]
 
   - id: celld-releases
     title: "celld: release notes"
@@ -311,3 +321,73 @@ groups:
         date: "2024-10-23"
         url: "https://www.techfabric.com/blog/the-imperative-of-durable-execution-in-app-dev-unveiling-temporals-framework"
         used_in: [ch1]
+
+  - id: sqlite-ltx
+    title: "SQLite's WAL, Litestream, and LTX"
+    entries:
+      - id: sqlite-wal
+        title: "Write-Ahead Logging"
+        publisher: "SQLite documentation"
+        url: "https://sqlite.org/wal.html"
+        used_in: [appD]
+      - id: sqlite-fileformat
+        title: "Database File Format (the WAL file format)"
+        publisher: "SQLite documentation"
+        url: "https://sqlite.org/fileformat2.html"
+        used_in: [appD]
+      - id: sqlite-vfs
+        title: "The SQLite OS Interface or \"VFS\""
+        publisher: "SQLite documentation"
+        url: "https://sqlite.org/vfs.html"
+        used_in: [appD]
+      - id: litestream-how
+        title: "How it works"
+        publisher: "Litestream documentation"
+        url: "https://litestream.io/how-it-works/"
+        used_in: [appD]
+      - id: litestream-ltx-cmd
+        title: "Command: ltx"
+        publisher: "Litestream documentation"
+        url: "https://litestream.io/reference/ltx/"
+        used_in: [appD]
+      - id: litestream-migration
+        title: "Migration Guide"
+        publisher: "Litestream documentation"
+        url: "https://litestream.io/docs/migration/"
+        used_in: [appD]
+      - id: litestream-repo
+        title: "Litestream: streaming replication for SQLite (README and docs/SQLITE_INTERNALS.md)"
+        publisher: "benbjohnson/litestream"
+        url: "https://github.com/benbjohnson/litestream"
+        used_in: [appD]
+      - id: ltx-repo
+        title: "LTX: Go library for the LTX file format"
+        publisher: "superfly/ltx"
+        url: "https://github.com/superfly/ltx"
+        used_in: [appD]
+      - id: litefs-intro
+        author: "Ben Johnson"
+        title: "Introducing LiteFS"
+        publisher: "The Fly Blog"
+        date: "2022-09-21"
+        url: "https://fly.io/blog/introducing-litefs/"
+        used_in: [appD]
+      - id: litefs-how
+        title: "How LiteFS Works"
+        publisher: "Fly.io documentation"
+        url: "https://fly.io/docs/litefs/how-it-works/"
+        used_in: [appD]
+      - id: litestream-revamped
+        author: "Ben Johnson"
+        title: "Litestream Revamped"
+        publisher: "The Fly Blog"
+        date: "2025-05-20"
+        url: "https://fly.io/blog/litestream-revamped/"
+        used_in: [appD]
+      - id: litestream-v050
+        author: "Ben Johnson"
+        title: "Litestream v0.5.0 is Here"
+        publisher: "The Fly Blog"
+        date: "2025-10-02"
+        url: "https://fly.io/blog/litestream-v050-is-here/"
+        used_in: [appD]
