@@ -149,30 +149,30 @@ Two names, two cells, two independent SQLite databases. That is the model workin
 <desc id="fdev-d">Editing a source file triggers the watcher, which builds a new deployment beside the running one and adopts it in place. Durable state persists in the .celld/dev local store across rebuilds and normal shutdowns. A failed build leaves the current application serving.</desc>
 <defs>
 <marker id="fdeva" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6357"></path>
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink-3, #7b8791)"></path>
 </marker>
 <marker id="fdevc" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="#a85a1a"></path>
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--cobalt, #2a56a0)"></path>
 </marker>
 </defs>
-<rect fill="#ece4d2" height="60" rx="4" stroke="#1f3a32" stroke-width="1.2" width="180" x="24" y="40"></rect>
-<text class="m" fill="#142822" font-size="10" font-weight="600" text-anchor="middle" x="114" y="66">edit src/ or config</text>
-<text class="m" fill="#6b6357" font-size="8.5" text-anchor="middle" x="114" y="84">watcher sees the change</text>
-<rect fill="#ece4d2" height="60" rx="4" stroke="#1f3a32" stroke-width="1.2" width="180" x="254" y="40"></rect>
-<text class="m" fill="#142822" font-size="10" font-weight="600" text-anchor="middle" x="344" y="66">build new deployment</text>
-<text class="m" fill="#6b6357" font-size="8.5" text-anchor="middle" x="344" y="84">beside the running one</text>
-<rect fill="#ece4d2" height="60" rx="4" stroke="#a85a1a" stroke-width="1.4" width="180" x="484" y="40"></rect>
-<text class="m" fill="#a85a1a" font-size="10" font-weight="600" text-anchor="middle" x="574" y="66">adopt in place</text>
-<text class="m" fill="#6b6357" font-size="8.5" text-anchor="middle" x="574" y="84">new requests switch over</text>
-<rect fill="#f3ecdd" height="60" rx="4" stroke="#8a7e5e" stroke-dasharray="5 3" stroke-width="1.1" width="152" x="704" y="40"></rect>
-<text class="m" fill="#6b6357" font-size="9.5" text-anchor="middle" x="780" y="66">failed build?</text>
-<text class="m" fill="#6b6357" font-size="8.5" text-anchor="middle" x="780" y="84">current app keeps serving</text>
-<path d="M 208 70 L 250 70" fill="none" marker-end="url(#fdeva)" stroke="#6b6357" stroke-width="1.4"></path>
-<path d="M 438 70 L 480 70" fill="none" marker-end="url(#fdeva)" stroke="#6b6357" stroke-width="1.4"></path>
-<rect fill="#f3ecdd" height="44" rx="4" stroke="#a85a1a" stroke-width="1.3" width="410" x="254" y="140"></rect>
-<text class="m" fill="#142822" font-size="9.5" text-anchor="middle" x="459" y="158">.celld/dev — the local object store</text>
-<text class="f" fill="#3a3a36" font-size="11.5" text-anchor="middle" x="459" y="173">durable state survives every rebuild and a normal shutdown</text>
-<path d="M 574 104 L 574 136" fill="none" marker-end="url(#fdevc)" stroke="#a85a1a" stroke-dasharray="4 3" stroke-width="1.3"></path>
+<rect height="60" rx="4" stroke-width="1.2" width="180" x="24" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10" font-weight="600" text-anchor="middle" x="114" y="66" style="fill:var(--ink, #1b252e)">edit src/ or config</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="114" y="84" style="fill:var(--ink-2, #4a5763)">watcher sees the change</text>
+<rect height="60" rx="4" stroke-width="1.2" width="180" x="254" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="10" font-weight="600" text-anchor="middle" x="344" y="66" style="fill:var(--ink, #1b252e)">build new deployment</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="344" y="84" style="fill:var(--ink-2, #4a5763)">beside the running one</text>
+<rect height="60" rx="4" stroke-width="1.4" width="180" x="484" y="40" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="10" font-weight="600" text-anchor="middle" x="574" y="66" style="fill:var(--cobalt, #2a56a0)">adopt in place</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="574" y="84" style="fill:var(--ink-2, #4a5763)">new requests switch over</text>
+<rect height="60" rx="4" stroke-dasharray="5 3" stroke-width="1.1" width="152" x="704" y="40" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9.5" text-anchor="middle" x="780" y="66" style="fill:var(--ink-2, #4a5763)">failed build?</text>
+<text class="m" font-size="8.5" text-anchor="middle" x="780" y="84" style="fill:var(--ink-2, #4a5763)">current app keeps serving</text>
+<path d="M 208 70 L 250 70" fill="none" marker-end="url(#fdeva)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 438 70 L 480 70" fill="none" marker-end="url(#fdeva)" stroke-width="1.4" style="stroke:var(--ink-3, #7b8791)"></path>
+<rect height="44" rx="4" stroke-width="1.3" width="410" x="254" y="140" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9.5" text-anchor="middle" x="459" y="158" style="fill:var(--ink, #1b252e)">.celld/dev—the local object store</text>
+<text class="f" font-size="11.5" text-anchor="middle" x="459" y="173" style="fill:var(--ink-2, #4a5763)">durable state survives every rebuild and a normal shutdown</text>
+<path d="M 574 104 L 574 136" fill="none" marker-end="url(#fdevc)" stroke-dasharray="4 3" stroke-width="1.3" style="stroke:var(--cobalt, #2a56a0)"></path>
 </svg>
 <figcaption>The dev loop is the production deployment mechanism in miniature: a new deployment is built beside the old and adopted in place, and cell state is untouched. What you rehearse locally is what Step 09 does to a fleet.</figcaption>
 </figure>
@@ -372,36 +372,36 @@ The one rule that decides whether your workflow is correct is the replay rule. A
 <figure class="topology">
 <svg aria-labelledby="fwf-t fwf-d" role="img" viewbox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
 <title id="fwf-t">Workflow replay after a crash</title>
-<desc id="fwf-d">First execution: step one and step two complete and store their results; a crash lands during step three. On replay, run() starts from the top — steps one and two return their stored results without re-running their callbacks, code between steps runs again, and step three's callback runs again. Side effects outside steps, and non-idempotent steps, are therefore bugs.</desc>
+<desc id="fwf-d">First execution: step one and step two complete and store their results; a crash lands during step three. On replay, run() starts from the top—steps one and two return their stored results without re-running their callbacks, code between steps runs again, and step three's callback runs again. Side effects outside steps, and non-idempotent steps, are therefore bugs.</desc>
 <defs>
 <marker id="fwfa" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6357"></path>
+<path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--ink-3, #7b8791)"></path>
 </marker>
 </defs>
-<text class="m" fill="#142822" font-size="10" font-weight="600" x="20" y="52">1st run</text>
-<rect fill="#ece4d2" height="30" rx="3" stroke="#1f3a32" stroke-width="1.2" width="170" x="120" y="34"></rect>
-<text class="m" fill="#142822" font-size="9" text-anchor="middle" x="205" y="53">step.do "fetch" ✓ stored</text>
-<rect fill="#ece4d2" height="30" rx="3" stroke="#1f3a32" stroke-width="1.2" width="170" x="310" y="34"></rect>
-<text class="m" fill="#142822" font-size="9" text-anchor="middle" x="395" y="53">step.sleep ✓ stored</text>
-<rect fill="#f3ecdd" height="30" rx="3" stroke="#a85a1a" stroke-width="1.4" width="170" x="500" y="34"></rect>
-<text class="m" fill="#a85a1a" font-size="9" text-anchor="middle" x="585" y="53">step.do "store" … crash</text>
-<path d="M 680 49 L 700 49" fill="none" stroke="#a85a1a" stroke-width="1.6"></path>
-<text class="m" fill="#a85a1a" font-size="10" font-weight="600" x="710" y="53">✕ node lost</text>
-<text class="m" fill="#142822" font-size="10" font-weight="600" x="20" y="130">replay</text>
-<rect fill="#f3ecdd" height="30" rx="3" stroke="#8a7e5e" stroke-dasharray="5 3" stroke-width="1.1" width="170" x="120" y="112"></rect>
-<text class="m" fill="#6b6357" font-size="9" text-anchor="middle" x="205" y="131">stored result returned</text>
-<rect fill="#f3ecdd" height="30" rx="3" stroke="#8a7e5e" stroke-dasharray="5 3" stroke-width="1.1" width="170" x="310" y="112"></rect>
-<text class="m" fill="#6b6357" font-size="9" text-anchor="middle" x="395" y="131">stored result returned</text>
-<rect fill="#ece4d2" height="30" rx="3" stroke="#1f3a32" stroke-width="1.3" width="170" x="500" y="112"></rect>
-<text class="m" fill="#142822" font-size="9" text-anchor="middle" x="585" y="131">callback runs again</text>
-<path d="M 290 127 L 306 127" fill="none" marker-end="url(#fwfa)" stroke="#6b6357" stroke-width="1.3"></path>
-<path d="M 480 127 L 496 127" fill="none" marker-end="url(#fwfa)" stroke="#6b6357" stroke-width="1.3"></path>
-<path d="M 290 49 L 306 49" fill="none" marker-end="url(#fwfa)" stroke="#6b6357" stroke-width="1.3"></path>
-<path d="M 480 49 L 496 49" fill="none" marker-end="url(#fwfa)" stroke="#6b6357" stroke-width="1.3"></path>
-<text class="m" fill="#a85a1a" font-size="8.5" text-anchor="middle" x="205" y="164">code BETWEEN steps runs again too</text>
-<rect fill="#ece4d2" height="52" rx="4" stroke="#a85a1a" stroke-width="1.2" width="840" x="20" y="190"></rect>
-<text class="m" fill="#142822" font-size="10" text-anchor="middle" x="440" y="211">Everything meaningful goes inside a step, and every step must be idempotent.</text>
-<text class="f" fill="#3a3a36" font-size="12.5" text-anchor="middle" x="440" y="230">A crash after a step's side effect but before its result is stored runs that callback again.</text>
+<text class="m" font-size="10" font-weight="600" x="20" y="52" style="fill:var(--ink, #1b252e)">1st run</text>
+<rect height="30" rx="3" stroke-width="1.2" width="170" x="120" y="34" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="205" y="53" style="fill:var(--ink, #1b252e)">step.do "fetch" ✓ stored</text>
+<rect height="30" rx="3" stroke-width="1.2" width="170" x="310" y="34" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="395" y="53" style="fill:var(--ink, #1b252e)">step.sleep ✓ stored</text>
+<rect height="30" rx="3" stroke-width="1.4" width="170" x="500" y="34" style="fill:var(--paper-2, #ebeee9);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="585" y="53" style="fill:var(--cobalt, #2a56a0)">step.do "store" … crash</text>
+<path d="M 680 49 L 700 49" fill="none" stroke-width="1.6" style="stroke:var(--cobalt, #2a56a0)"></path>
+<text class="m" font-size="10" font-weight="600" x="710" y="53" style="fill:var(--cobalt, #2a56a0)">✕ node lost</text>
+<text class="m" font-size="10" font-weight="600" x="20" y="130" style="fill:var(--ink, #1b252e)">replay</text>
+<rect height="30" rx="3" stroke-dasharray="5 3" stroke-width="1.1" width="170" x="120" y="112" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="205" y="131" style="fill:var(--ink-2, #4a5763)">stored result returned</text>
+<rect height="30" rx="3" stroke-dasharray="5 3" stroke-width="1.1" width="170" x="310" y="112" style="fill:var(--paper-2, #ebeee9);stroke:var(--ink-3, #7b8791)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="395" y="131" style="fill:var(--ink-2, #4a5763)">stored result returned</text>
+<rect height="30" rx="3" stroke-width="1.3" width="170" x="500" y="112" style="fill:var(--plate, #e6ebeb);stroke:var(--ink-2, #4a5763)"></rect>
+<text class="m" font-size="9" text-anchor="middle" x="585" y="131" style="fill:var(--ink, #1b252e)">callback runs again</text>
+<path d="M 290 127 L 306 127" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 480 127 L 496 127" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 290 49 L 306 49" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
+<path d="M 480 49 L 496 49" fill="none" marker-end="url(#fwfa)" stroke-width="1.3" style="stroke:var(--ink-3, #7b8791)"></path>
+<text class="m" font-size="8.5" text-anchor="middle" x="205" y="164" style="fill:var(--cobalt, #2a56a0)">code BETWEEN steps runs again too</text>
+<rect height="52" rx="4" stroke-width="1.2" width="840" x="20" y="190" style="fill:var(--plate, #e6ebeb);stroke:var(--cobalt, #2a56a0)"></rect>
+<text class="m" font-size="10" text-anchor="middle" x="440" y="211" style="fill:var(--ink, #1b252e)">Everything meaningful goes inside a step, and every step must be idempotent.</text>
+<text class="f" font-size="12.5" text-anchor="middle" x="440" y="230" style="fill:var(--ink-2, #4a5763)">A crash after a step's side effect but before its result is stored runs that callback again.</text>
 </svg>
 <figcaption>Replay is what makes a workflow durable and what makes non-idempotent steps a bug. celld replays <code>run()</code> from the top; stored steps are skipped, everything else re-executes.</figcaption>
 </figure>
