@@ -41,6 +41,20 @@ The book build also rewrites series cross-references ("Part 1 § 04", "Part 2 St
 book references ("Chapter 4", "Chapter 9, Step 05", "Lab 2, Part 3") with links, marks glossary terms with hover
 definitions, adds a sources footer to every chapter, and fails if any internal link is broken.
 
+## Installable and offline
+
+The site is a progressive web app: a manifest with maskable icons (`assets/`, rendered by `tools/icons.ts`), theme
+colors and touch icons on every page, and a service worker (`src/pwa.ts`) that precaches every page under a
+cache name hashed from the built content, so a rebuild invalidates the old copy. All URLs are relative, so the book
+works at a domain root or under a subpath. Service workers need HTTPS (or `127.0.0.1`), so the claude.ai artifact
+preview is readable but not installable.
+
+## Diagrams
+
+The inline SVG figures use bench-sheet's color tokens (`style="fill:var(--ink, #1b252e)"`), so they follow the
+light and dark themes, and sit on the bench sheet's engineering-paper grid (`src/figures.ts`, shared by both
+outputs). `tools/recolor_svgs.py` converted the original editorial palette; use tokens for any new figure.
+
 ## Editing
 
 - **Articles:** edit `content/series/*.md`, then `deno task build` and `deno task series`.
@@ -60,4 +74,7 @@ deno task build                     # fails on a broken internal link
 python3 tools/audit.py dist         # series phrasing left in book text
 deno task serve &                   # http://127.0.0.1:8420
 deno run -A tools/phone.ts /tmp/shots index.html …   # 390px overflow check + screenshots (INTERACT=1 also drives the drawer and glossary)
+deno run -A tools/pwa_check.ts                        # manifest, installability, service worker, offline reading
+deno run -A tools/figshot.ts /tmp/figs dark bucket.html   # every figure on a page, in a forced color scheme
+sh tools/stage_preview.sh DIR                         # stage dist/ for a multi-page claude.ai artifact preview
 ```

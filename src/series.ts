@@ -10,6 +10,7 @@
  */
 
 import { applyVariants } from "./variants.ts";
+import { FIGURE_CSS } from "./figures.ts";
 import { readAssets } from "../vendor/bench-sheet/bench.ts";
 import { renderArticle } from "../vendor/bench-sheet/render-article.ts";
 import { isNotebook, type Notebook, renderNotebook, toNotebookMeta } from "../vendor/bench-sheet/render-notebook.ts";
@@ -75,7 +76,7 @@ function seriesNotebook(slug: string): Notebook {
 if (import.meta.main) {
   const install = Deno.args.includes("--install");
   const arts = loadArtifacts(read("content/series/artifacts.json"));
-  const articleCss = await readAssets("bench.css", "article.css");
+  const articleCss = (await readAssets("bench.css", "article.css")) + FIGURE_CSS;
   const notebookCss = await readAssets("bench.css", "notebook.css");
   const js = await readAssets("bench.js");
   const nbJs = await readAssets("bench.js", "notebook.js");

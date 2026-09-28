@@ -27,6 +27,8 @@ import { esc, readAssets, wrapPage } from "../vendor/bench-sheet/bench.ts";
 import { renderArticle } from "../vendor/bench-sheet/render-article.ts";
 import { isNotebook, type Notebook, renderNotebook, toNotebookMeta } from "../vendor/bench-sheet/render-notebook.ts";
 import { parse as parseYaml } from "@std/yaml";
+import { FIGURE_CSS } from "./figures.ts";
+import { contentVersion, ICON_FILES, manifest, REGISTER_JS, serviceWorker, withHeadTags } from "./pwa.ts";
 
 const ROOT = new URL("../", import.meta.url).pathname;
 const read = (p: string) => Deno.readTextFileSync(ROOT + p);
@@ -544,11 +546,11 @@ export function checkLinks(files: Map<string, string>): string[] {
 if (import.meta.main) {
   const inp = loadInputs();
   const assets: Assets = {
-    articleCss: (await readAssets("bench.css", "article.css")) + BOOK_CSS,
+    articleCss: (await readAssets("bench.css", "article.css")) + FIGURE_CSS + BOOK_CSS,
     notebookCss: (await readAssets("bench.css", "notebook.css")) + BOOK_CSS,
-    js: (await readAssets("bench.js")) + BOOK_JS,
+    js: (await readAssets("bench.js")) + BOOK_JS + REGISTER_JS,
   };
-  const nbJs = (await readAssets("bench.js", "notebook.js")) + BOOK_JS;
+  const nbJs = (await readAssets("bench.js", "notebook.js")) + BOOK_JS + REGISTER_JS;
 
   const planned = inp.book.pages.map((c) => planPage(c, inp));
   const raw = new Map<string, string>();
@@ -568,12 +570,31 @@ if (import.meta.main) {
 
   const out = new Map<string, string>();
   for (const p of planned) out.set(fileOf(p.cfg.slug), postprocess(raw.get(p.cfg.slug) ?? "", p, pc));
-  out.set("index.html", coverPage(pc, (await readAssets("bench.css")) + BOOK_CSS, BOOK_JS));
+  out.set("index.html", coverPage(pc, (await readAssets("bench.css")) + BOOK_CSS, BOOK_JS + REGISTER_JS));
+  const appName = inp.book.title;
+  for (const [f, h] of out) out.set(f, withHeadTags(h, appName));
 
   const dist = ROOT + "dist/";
   await Deno.remove(dist, { recursive: true }).catch(() => {});
   await Deno.mkdir(dist, { recursive: true });
   for (const [f, h] of out) await Deno.writeTextFile(dist + f, h);
+
+  // PWA: icons, manifest, and a service worker whose cache name hashes everything it serves.
+  await Deno.mkdir(dist + "icons", { recursive: true });
+  const icons = new Map<string, Uint8Array>();
+  for (const f of ICON_FILES) {
+    const bytes = await Deno.readFile(ROOT + "assets/" + f);
+    icons.set(`icons/${f}`, bytes);
+    await Deno.writeFile(dist + "icons/" + f, bytes);
+  }
+  const man = manifest(inp.book);
+  await Deno.writeTextFile(dist + "manifest.webmanifest", man);
+  const version = await contentVersion(
+    new Map<string, string | Uint8Array>([...out, ...icons, ["manifest.webmanifest", man]]),
+  );
+  const precache = ["./", ...out.keys(), "manifest.webmanifest", ...icons.keys()];
+  await Deno.writeTextFile(dist + "sw.js", serviceWorker(version, precache));
+  console.log(`PWA: manifest, ${icons.size} icons, service worker (cache ${version}, ${precache.length} entries)`);
 
   const problems = checkLinks(out);
   console.log(`built ${out.size} pages into dist/`);
