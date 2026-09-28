@@ -6,9 +6,13 @@ numbered: false
 
 ## How this book was made {#how-made}
 
-This book was generated with AI. The text, the diagrams, the review questions, and the lab notebooks were written by Anthropic's Claude, working in Claude Code, from materials curated by Thomas Lockney for this purpose.
+This book was generated with AI, using three tools, from materials curated by Thomas Lockney for this purpose:
 
-Thomas chose the subject and the sources, set the scope and the structure, and directed each revision, including outside reviews that checked the text against celld's documentation and led to corrections. The sources were celld's documentation and release notes (v0.4.0 through v0.6.0), Cloudflare's documentation and engineering posts, and a curated set of articles on actors and durable execution. The Bibliography lists all of them.
+- **Writing.** The text, the diagrams, the self-quiz, and the lab notebooks were written by Anthropic's Claude, working in Claude Code.
+- **Research.** Research on the core topics (the Workers platform, Durable Objects, the actor model, and durable execution) was done with Gemini Notebook, driven through the [gemini-notebook-mcp-cli](https://github.com/jacob-bd/gemini-notebook-mcp-cli) tool.
+- **Review.** Reviews of the material were run with Hermes Agent, using the GLM-5.3 and DeepSeek V4.1 Flash models.
+
+Thomas chose the subject and the sources, set the scope and the structure, and directed each revision, including acting on those reviews, which checked the text against celld's documentation and led to corrections. The sources were celld's documentation and release notes (v0.4.0 through v0.6.0), Cloudflare's documentation and engineering posts, and a curated set of articles on actors and durable execution. The Bibliography lists all of them.
 
 The labs were not simulated. Each notebook was executed against a real `celld dev` node (celld v0.6.0, Deno 2.9.6) on a homelab JupyterLab on 2026·09·26, and the outputs are shown exactly as that run produced them. Where a run showed less than the prose once claimed, the prose was changed to match the output, never the reverse.
 
