@@ -142,7 +142,7 @@ An **alarm** is the object's own timer. `this.ctx.storage.setAlarm(time)` schedu
 > [!TIP] Rules of thumb · from Cloudflare's "Rules of Durable Objects"
 >
 > - **Model the atom of coordination.** One object per chat room, document, user, or match: the smallest unit whose state must agree with itself.
-> - **Avoid global singletons.** One object handles roughly 500–1,000 requests per second. A single global counter or rate limiter becomes the bottleneck.
+> - **Avoid global singletons.** Cloudflare measures one object at roughly 500–1,000 requests per second. A single global counter or rate limiter becomes the bottleneck.
 > - **Use parents and children.** A parent object keeps the directory of its children, not their data, so work on different children runs in parallel.
 > - **Use `blockConcurrencyWhile()` sparingly.** It suits one-time setup such as a schema migration in the constructor. Held across slow I/O, it stalls every request to the object.
 > - **Make alarms idempotent.** A retried `alarm()` can run more than once, so check state before acting.

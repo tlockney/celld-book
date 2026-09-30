@@ -140,7 +140,7 @@ groups:
         title: "Rules of Durable Objects"
         publisher: "Cloudflare Durable Objects docs"
         url: "https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/"
-        used_in: [ch1]
+        used_in: [ch1, part2]
       - id: cf-workflows-docs
         title: "Overview"
         publisher: "Cloudflare Workflows docs"
