@@ -995,7 +995,7 @@ export class ChatRoom extends DurableObject {
 ### Operational rules of thumb
 
 - **Batch WebSocket messages.** Each frame costs a context switch; pack many small logical messages into one frame with an envelope format. Fewer, larger messages beat many small ones.
-- **Keep the constructor trivial.** It runs on every wake, including each message to a hibernated cell. Restore from `storage` in the handler, not the constructor.
+- **Keep the constructor cheap.** It runs on every wake, including each message to a hibernated cell. A schema-version check inside `blockConcurrencyWhile()` belongs there; loading the cell's state does not, so restore from `storage` in the handler.
 - **Route a cell's traffic to its owner node when latency matters.** The versioned peer tunnel lets any node ingress any cell, but the warm path (zero bucket operations, p50 ≈ 1.1 ms) only exists when the request lands on the owner.
 - **Outbound WebSocket connections do not survive a move.** An outbound DO socket keeps the cell resident and dies with the node/owner move; keep connection intent in storage and reconnect after activation. A WS transport cannot move to a new owner, so reconnect with a stable operation ID.
 - **Make remote operations idempotent.** celld does not retry a proxied call after transmission starts. Use a stable operation ID and design handlers to tolerate a retry.
@@ -1004,6 +1004,29 @@ export class ChatRoom extends DurableObject {
 > [!NOTE] Scale math
 >
 > Warm requests do zero bucket operations. A cold activation (restore from the bucket) is the only path that touches object storage, and a full restore is treated as ordinary work. Measured restore numbers were pending at the time of writing, but a ten-node fleet recovered every cell after stopping two nodes in ~11 s at the tail.
+
+### Cloudflare's rules, on celld
+
+Cloudflare's [Rules of Durable Objects](https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/) is the standard design checklist, and most of it carries over unchanged. The table sets each rule against celld's [Durable Objects page](https://github.com/denoland/celld/blob/v0.6.0/docs/services/durable-objects.md). Three rows need the most attention: renames do not carry over, the constructor needs a precise rule, and celld has more ways to stop an object than Cloudflare does.
+
+| Cloudflare's rule | On celld |
+|----|----|
+| Model one object per "atom" of coordination; never route all traffic through a global singleton | The same, and a singleton costs more here: every call to a cell is forwarded to the one node that owns it, so one hot cell loads one machine of your fleet. |
+| Use deterministic IDs (`getByName()`, `idFromName()`) | Both work. The id is an HMAC-SHA-256 of the name under a key derived from the script name and the class name, so one name reaches one cell from any node. A `newUniqueId()` id cannot be derived again, so keep its string form. |
+| Rename or delete a class through migrations | **Does not carry over.** A `migrations` entry accepts only `tag` and `new_sqlite_classes`; a class rename, delete, or transfer stops the deployment. Renaming the Worker *script* changes every derived id: the renamed script reaches new, empty cells while the old data stays under the old ids. Keep script and class names stable, or migrate the data first. |
+| Give a location hint | Accepted with Cloudflare's values, but fleet ownership decides where a cell runs. celld makes no placement, migration, or jurisdiction promise, and the jurisdiction calls throw. |
+| Run schema migrations in the constructor, inside `blockConcurrencyWhile()`; use it for nothing else | Yes, but keep it to a cheap schema-version check: the constructor runs on every wake, and a `blockConcurrencyWhile()` or transaction longer than 30 seconds resets the object and rolls the transaction back. |
+| Treat in-memory state as a cache; persist what matters | Stronger here. Idle eviction drops memory, and ownership moves when a node drains, when rebalancing moves a hibernated cell, and when a node is lost. Only storage and WebSocket attachments survive. |
+| Design for unexpected shutdowns: write progress as you go | celld has more ways to stop an object: idle eviction, a drain handoff that cancels firing alarms and active internal fetch/RPC handlers (§ 05), a rebalancing move, a self-fence that exits with code 3 (§ 04), and SIGKILL when the orchestrator's stop grace is too short. Persist each step before the next await that could be the last. |
+| Rely on the output gate; don't `await` writes for safety | The same promise, with a stronger proof: a response waits until a bucket or fleet proof covers every write it can reveal, and a WebSocket frame waits only for its own proof. `transaction()` and `transactionSync()` group writes; a nested transaction that fails discards only its own writes. |
+| Guard against races across non-storage I/O | The same interleaving rule: storage calls are synchronous and never interleave, but an outbound `fetch()` or RPC `await` lets another event run. Keep a read-modify-write free of such awaits, or re-check a version after the await before writing. |
+| Make alarm handlers idempotent | Required, and celld helps: `alarm()` receives `retryCount` and `isRetry`, and a drain arms a durable wake so the successor runs a cancelled alarm at least once. |
+| Use hibernatable WebSockets and `serializeAttachment()` | Supported, with attachments and tags. A hibernatable socket survives hibernation on the same node but closes with code 1012 when the cell moves to a new owner, so clients must reconnect. |
+| An object doesn't know its name, so store it in an `init()` call | Mostly unnecessary: `ctx.id.name` carries the name for names up to 1,024 UTF-8 bytes, which is Cloudflare's own limit. A `newUniqueId()` cell has no name and still needs the record. |
+| Clear an object with `deleteAll()` | Available. celld's docs do not say whether it also clears a scheduled alarm, so call `deleteAlarm()` as well. |
+| Plan for roughly 500–1,000 requests per second per object | That is Cloudflare's measurement. celld publishes no per-cell figure; a warm request on the owner does zero bucket operations, but every write waits for its durability proof. Measure on your own fleet and storage. |
+| Test with `@cloudflare/vitest-plugin` | That pool runs on workerd. celld's differential conformance tests hold celld to workerd's output, but celld's docs name no celld-backed test pool, so test ownership, durability, and moves against `celld dev` or a fleet. |
+| Prefer RPC methods, and always `await` them | The same. An RPC stub cannot cross an isolate boundary, an `AbortSignal` does not cross a node boundary, and a proxied call is not retried once transmission starts, so keep operations idempotent. |
 
 ## Reliability, testing, and telemetry {#reliability}
 
@@ -1203,5 +1226,5 @@ The terms this series uses, each defined once and used the same way in all six p
 <!-- series-only -->
 ------------------------------------------------------------------------
 
-*Sources: celld.dev (docs, what celld guarantees, Cloudflare compatibility, limitations, security, telemetry, testing, WebAssembly) at the v0.6.0 tag of `denoland/celld`, the v0.4.1 through v0.6.0 release notes, and developers.cloudflare.com (Durable Objects overview, WebSockets hibernation, alarms). First written 2026·08·30 for v0.4.0 (2026·08·28); revised 2026·09·15 for v0.5.0 and the intervening v0.4.1; revised 2026·09·21 for v0.5.1 (2026·09·19) and the per-service documentation pages; revised 2026·09·26 for v0.6.0 (2026·09·26); rewritten 2026·09·27 as one description of v0.6.0 with the release history consolidated in § 05. celld is a beta, so verify current behavior against the installed release.*
+*Sources: celld.dev (docs, what celld guarantees, Cloudflare compatibility, limitations, security, telemetry, testing, WebAssembly) at the v0.6.0 tag of `denoland/celld`, the v0.4.1 through v0.6.0 release notes, and developers.cloudflare.com (Durable Objects overview, Rules of Durable Objects, WebSockets hibernation, alarms). First written 2026·08·30 for v0.4.0 (2026·08·28); revised 2026·09·15 for v0.5.0 and the intervening v0.4.1; revised 2026·09·21 for v0.5.1 (2026·09·19) and the per-service documentation pages; revised 2026·09·26 for v0.6.0 (2026·09·26); rewritten 2026·09·27 as one description of v0.6.0 with the release history consolidated in § 05; § 07 set against Cloudflare's Rules of Durable Objects 2026·09·30. celld is a beta, so verify current behavior against the installed release.*
 <!-- /series-only -->
